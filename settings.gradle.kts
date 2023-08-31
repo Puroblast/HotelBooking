@@ -15,4 +15,4 @@ dependencyResolutionManagement {
 
 rootProject.name = "HotelBooking"
 include(":app")
- 
+include(":domain-hotel")

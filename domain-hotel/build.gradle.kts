@@ -5,16 +5,11 @@ plugins {
 }
 
 android {
-    namespace = "com.puroblast.hotelbooking"
+    namespace = "com.puroblast.domain_hotel"
     compileSdk = libs.versions.compileSdk.get().toInt()
 
     defaultConfig {
-        applicationId = "com.puroblast.hotelbooking"
         minSdk = libs.versions.minSdk.get().toInt()
-        targetSdk = libs.versions.targetSdk.get().toInt()
-        versionCode = libs.versions.versionCode.get().toInt()
-        versionName = libs.versions.versionName.get()
-
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
 
@@ -41,7 +36,6 @@ android {
 
 
 dependencies {
-    implementation(project(":domain-hotel"))
 
     implementation(libs.core.ktx)
     implementation(libs.appcompat)
@@ -55,4 +49,9 @@ dependencies {
     implementation(libs.dagger)
     kapt(libs.dagger.compiler)
     //Dagger endregion
+
+    //Retrofit region
+    implementation(libs.retrofit)
+    implementation (libs.converter.gson)
+    //Retrofit endregion
 }
