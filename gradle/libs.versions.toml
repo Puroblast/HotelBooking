@@ -1,6 +1,7 @@
 [versions]
 coil = "2.4.0"
 dagger = "2.44"
+kapt = "1.9.0"
 daggerCompiler = "2.44"
 minSdk = "24"
 targetSdk = "33"
@@ -20,6 +21,7 @@ kotlinx-coroutines-core = "1.7.1"
 lifecycle-viewmodel-ktx = "2.6.1"
 material = "1.9.0"
 constraintlayout = "2.1.4"
+detekt = "1.22.0"
 navigation-fragment-ktx = "2.7.1"
 viewbindingpropertydelegate-noreflection = "1.5.9"
 
@@ -41,9 +43,13 @@ kotlinx-coroutines-core = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-c
 material = { group = "com.google.android.material", name = "material", version.ref = "material" }
 constraintlayout = { group = "androidx.constraintlayout", name = "constraintlayout", version.ref = "constraintlayout" }
 viewbindingpropertydelegate-noreflection = { module = "com.github.kirich1409:viewbindingpropertydelegate-noreflection", version.ref = "viewbindingpropertydelegate-noreflection" }
+util-detektFormatting = { module = "io.gitlab.arturbosch.detekt:detekt-formatting", version.ref = "detekt" }
+util-detektPlugin = { module = "io.gitlab.arturbosch.detekt:detekt-gradle-plugin", version.ref = "detekt" }
 
 [plugins]
 androidApplication = { id = "com.android.application", version.ref = "agp" }
 kotlinAndroid = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
+kapt = { id = "org.jetbrains.kotlin.kapt", version.ref = "kapt" }
+detekt = { id = "io.gitlab.arturbosch.detekt", version.ref = "detekt" }
 
 [bundles]
