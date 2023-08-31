@@ -1,7 +1,8 @@
 name: check-codestyle-and-build
 on: [ pull_request, workflow_dispatch ]
 
-
+variables:
+  GRAILS_OPTS: -Xms512m -Xmx512m
 jobs:
   build:
     runs-on: ubuntu-latest
