@@ -45,11 +45,6 @@ dependencies {
     androidTestImplementation(libs.androidx.test.ext.junit)
     androidTestImplementation(libs.espresso.core)
 
-    //Dagger region
-    implementation(libs.dagger)
-    kapt(libs.dagger.compiler)
-    //Dagger endregion
-
     //Retrofit region
     implementation(libs.retrofit)
     implementation (libs.converter.gson)

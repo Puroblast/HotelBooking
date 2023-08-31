@@ -6,15 +6,15 @@ import com.puroblast.domain_hotel.model.Room
 
 class HotelRepository(private val hotelApi: HotelApi) {
 
-    suspend fun getHotel() : Hotel {
+    suspend fun getHotel(): Hotel {
         return hotelApi.getHotelDetails()
     }
 
-    suspend fun getHotelRooms() : List<Room> {
+    suspend fun getHotelRooms(): List<Room> {
         return hotelApi.getRoomDetails()
     }
 
-    suspend fun getBookingDetails() : BookingDetails {
+    suspend fun getBookingDetails(): BookingDetails {
         return hotelApi.getBookingDetails()
     }
 }

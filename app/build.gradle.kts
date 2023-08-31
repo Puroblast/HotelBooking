@@ -55,4 +55,9 @@ dependencies {
     implementation(libs.dagger)
     kapt(libs.dagger.compiler)
     //Dagger endregion
+
+    //Retrofit region
+    implementation(libs.retrofit)
+    implementation (libs.converter.gson)
+    //Retrofit endregion
 }
