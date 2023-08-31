@@ -7,6 +7,7 @@ plugins {
 android {
     namespace = "com.puroblast.hotelbooking"
     compileSdk = libs.versions.compileSdk.get().toInt()
+    buildToolsVersion = libs.versions.compileSdk.get()
 
     defaultConfig {
         applicationId = "com.puroblast.hotelbooking"
@@ -55,4 +56,9 @@ dependencies {
     implementation(libs.dagger)
     kapt(libs.dagger.compiler)
     //Dagger endregion
+
+    //Retrofit region
+    implementation(libs.retrofit)
+    implementation (libs.converter.gson)
+    //Retrofit endregion
 }
