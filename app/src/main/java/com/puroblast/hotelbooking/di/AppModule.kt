@@ -15,7 +15,7 @@ private const val BASE_URL = "https://run.mocky.io/"
 @Module
 class AppModule {
 
-    @[Provides AppScope]
+    @Provides
     @Singleton
     fun provideHotelApi(): HotelApi {
         val gson = GsonBuilder()

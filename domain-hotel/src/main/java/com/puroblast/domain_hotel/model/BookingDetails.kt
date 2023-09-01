@@ -1,10 +1,14 @@
 package com.puroblast.domain_hotel.model
 
+import com.google.gson.annotations.SerializedName
+
 data class BookingDetails(
     val id: Int,
     val hotelName: String,
-    val hotelAdress: String,
-    val horating: Int,
+    @SerializedName("hotel_adress")
+    val hotelAddress: String,
+    @SerializedName("horating")
+    val hotelRating: Int,
     val ratingName: String,
     val departure: String,
     val arrivalCountry: String,

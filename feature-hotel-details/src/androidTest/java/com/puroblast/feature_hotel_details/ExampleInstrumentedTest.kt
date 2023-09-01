@@ -1,4 +1,4 @@
-package com.puroblast.domain_hotel
+package com.puroblast.feature_hotel_details
 
 import androidx.test.platform.app.InstrumentationRegistry
 import androidx.test.ext.junit.runners.AndroidJUnit4
@@ -19,6 +19,6 @@ class ExampleInstrumentedTest {
     fun useAppContext() {
         // Context of the app under test.
         val appContext = InstrumentationRegistry.getInstrumentation().targetContext
-        assertEquals("com.puroblast.domain_hotel.test", appContext.packageName)
+        assertEquals("com.puroblast.feature_hotel_details.test", appContext.packageName)
     }
 }
