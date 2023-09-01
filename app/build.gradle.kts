@@ -20,6 +20,7 @@ android {
 
     buildTypes {
         release {
+            isDebuggable = false
             isMinifyEnabled = false
             proguardFiles(
                 getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro"
@@ -42,14 +43,12 @@ android {
 
 dependencies {
     implementation(project(":domain-hotel"))
+    implementation(project(":feature-hotel-details"))
 
     implementation(libs.core.ktx)
     implementation(libs.appcompat)
     implementation(libs.material)
     implementation(libs.constraintlayout)
-    testImplementation(libs.junit)
-    androidTestImplementation(libs.androidx.test.ext.junit)
-    androidTestImplementation(libs.espresso.core)
 
     //Dagger region
     implementation(libs.dagger)
@@ -60,4 +59,12 @@ dependencies {
     implementation(libs.retrofit)
     implementation (libs.converter.gson)
     //Retrofit endregion
+
+    testImplementation(libs.junit)
+    androidTestImplementation(libs.androidx.test.ext.junit)
+    androidTestImplementation(libs.espresso.core)
+
+
+
+
 }

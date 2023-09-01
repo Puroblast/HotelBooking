@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:padding="10dp">
+    android:layout_marginTop="8dp"
+    android:padding="16dp">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -12,39 +13,38 @@
         android:orientation="vertical">
 
         <TextView
-            style="@style/bold_text_style"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="10dp"
-            android:text="@string/about_the_hotel_text" />
+            android:layout_marginBottom="16dp"
+            android:text="@string/about_the_hotel_text"
+            android:textAppearance="@style/bold_text_style" />
 
         <com.google.android.material.chip.ChipGroup
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="10dp" />
+            android:layout_marginBottom="12dp" />
 
         <TextView
-            style="@style/primary_text_style"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="10dp"
+            android:layout_marginBottom="16dp"
+            android:textAppearance="@style/primary_text_style"
             tools:text="Отель VIP-класса с собственными гольф полями. Высокий уровнь сервиса. Рекомендуем для респектабельного отдыха. Отель принимает гостей от 18 лет!" />
 
         <com.google.android.material.card.MaterialCardView
             android:layout_width="match_parent"
-            android:layout_height="184dp"
-            android:padding="10dp">
+            android:layout_height="wrap_content"
+            android:padding="15dp">
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:layout_gravity="center"
                 android:orientation="vertical">
 
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_marginBottom="10dp">
+                    android:layout_height="wrap_content">
 
                     <ImageView
                         android:id="@+id/facilitiesStartIcon"
@@ -55,25 +55,31 @@
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent" />
 
-                    <TextView
-                        android:id="@+id/facilitiesText"
-                        style="@style/primary_text_style"
+                    <LinearLayout
+                        android:id="@+id/facilitiesViewGroup"
                         android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="10dp"
-                        android:text="@string/facilities_text"
-                        app:layout_constraintStart_toEndOf="@id/facilitiesStartIcon"
-                        app:layout_constraintTop_toTopOf="parent" />
-
-                    <TextView
-                        style="@style/secondary_text_style"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="10dp"
-                        android:text="@string/most_needed_text"
+                        android:layout_height="match_parent"
+                        android:layout_marginVertical="10dp"
+                        android:layout_marginStart="12dp"
+                        android:orientation="vertical"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintStart_toEndOf="@id/facilitiesStartIcon"
-                        app:layout_constraintTop_toBottomOf="@id/facilitiesText" />
+                        app:layout_constraintTop_toTopOf="parent">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/facilities_text"
+                            android:textAppearance="@style/primary_text_style" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/most_needed_text"
+                            android:textAppearance="@style/secondary_text_style" />
+
+                    </LinearLayout>
+
 
                     <ImageView
                         android:layout_width="wrap_content"
@@ -86,16 +92,16 @@
                     <View
                         android:layout_width="wrap_content"
                         android:layout_height="1dp"
+                        android:layout_marginTop="10dp"
                         android:background="#26828796"
-                        app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintStart_toEndOf="@id/facilitiesStartIcon" />
+                        app:layout_constraintStart_toEndOf="@id/facilitiesStartIcon"
+                        app:layout_constraintTop_toBottomOf="@id/facilitiesViewGroup" />
 
                 </androidx.constraintlayout.widget.ConstraintLayout>
 
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="10dp">
+                    android:layout_height="wrap_content">
 
                     <ImageView
                         android:id="@+id/includedStartIcon"
@@ -106,25 +112,30 @@
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent" />
 
-                    <TextView
-                        android:id="@+id/includedText"
-                        style="@style/primary_text_style"
+                    <LinearLayout
+                        android:id="@+id/includedViewGroup"
                         android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="10dp"
-                        android:text="@string/included_text"
-                        app:layout_constraintStart_toEndOf="@id/includedStartIcon"
-                        app:layout_constraintTop_toTopOf="parent" />
-
-                    <TextView
-                        style="@style/secondary_text_style"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="10dp"
-                        android:text="@string/most_needed_text"
+                        android:layout_height="match_parent"
+                        android:layout_marginVertical="10dp"
+                        android:layout_marginStart="12dp"
+                        android:orientation="vertical"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintStart_toEndOf="@id/includedStartIcon"
-                        app:layout_constraintTop_toBottomOf="@id/includedText" />
+                        app:layout_constraintTop_toTopOf="parent">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/included_text"
+                            android:textAppearance="@style/primary_text_style" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/most_needed_text"
+                            android:textAppearance="@style/secondary_text_style" />
+
+                    </LinearLayout>
 
                     <ImageView
                         android:layout_width="wrap_content"
@@ -137,11 +148,13 @@
                     <View
                         android:layout_width="wrap_content"
                         android:layout_height="1dp"
+                        android:layout_marginTop="10dp"
                         android:background="#26828796"
-                        app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintStart_toEndOf="@id/includedStartIcon" />
+                        app:layout_constraintStart_toEndOf="@id/includedStartIcon"
+                        app:layout_constraintTop_toBottomOf="@id/includedViewGroup" />
 
                 </androidx.constraintlayout.widget.ConstraintLayout>
+
 
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="match_parent"
@@ -156,25 +169,29 @@
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent" />
 
-                    <TextView
-                        android:id="@+id/excludedText"
-                        style="@style/primary_text_style"
+                    <LinearLayout
                         android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="10dp"
-                        android:text="@string/excluded_text"
-                        app:layout_constraintStart_toEndOf="@id/excludedStartIcon"
-                        app:layout_constraintTop_toTopOf="parent" />
-
-                    <TextView
-                        style="@style/secondary_text_style"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="10dp"
-                        android:text="@string/most_needed_text"
+                        android:layout_height="match_parent"
+                        android:layout_marginVertical="10dp"
+                        android:layout_marginStart="12dp"
+                        android:orientation="vertical"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintStart_toEndOf="@id/excludedStartIcon"
-                        app:layout_constraintTop_toBottomOf="@id/excludedText" />
+                        app:layout_constraintTop_toTopOf="parent">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/excluded_text"
+                            android:textAppearance="@style/primary_text_style" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/most_needed_text"
+                            android:textAppearance="@style/secondary_text_style" />
+
+                    </LinearLayout>
 
                     <ImageView
                         android:layout_width="wrap_content"
@@ -184,14 +201,8 @@
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintTop_toTopOf="parent" />
 
-                    <View
-                        android:layout_width="wrap_content"
-                        android:layout_height="1dp"
-                        android:background="#26828796"
-                        app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintStart_toEndOf="@id/excludedStartIcon" />
-
                 </androidx.constraintlayout.widget.ConstraintLayout>
+
 
             </LinearLayout>
 

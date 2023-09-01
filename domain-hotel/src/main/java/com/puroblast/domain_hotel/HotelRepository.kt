@@ -11,7 +11,7 @@ class HotelRepository(private val hotelApi: HotelApi) {
     }
 
     suspend fun getHotelRooms(): List<Room> {
-        return hotelApi.getRoomDetails()
+        return hotelApi.getHotelRooms()
     }
 
     suspend fun getBookingDetails(): BookingDetails {

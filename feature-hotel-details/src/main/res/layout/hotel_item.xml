@@ -10,7 +10,15 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        android:padding="15dp">
+        android:padding="16dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginBottom="16dp"
+            android:text="@string/hotel_header_text"
+            android:textAppearance="@style/bold_text_style" />
 
         <FrameLayout
             android:layout_width="343dp"
@@ -25,7 +33,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="17dp"
                 android:layout_gravity="center|bottom"
-                android:layout_marginBottom="10dp"
+                android:layout_marginBottom="8dp"
                 app:ci_gravity="center"
                 app:ci_height="5dp"
                 app:ci_margin="5dp"
@@ -35,12 +43,15 @@
         </FrameLayout>
 
         <com.google.android.material.chip.Chip
-            style="@style/primary_text_style"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginVertical="10dp"
-            android:background="#33FFC700"
-            android:textColor="#FFA800"
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="8dp"
+            android:paddingHorizontal="10dp"
+            android:paddingVertical="5dp"
+            android:textAppearance="@style/primary_text_style"
+            android:textColor="@color/chip_text_color"
+            app:chipBackgroundColor="@color/chip_background_color"
             app:chipCornerRadius="5dp"
             app:chipIcon="@drawable/star_icon"
             app:chipIconVisible="true"
@@ -50,14 +61,14 @@
             style="@style/bold_text_style"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
+            android:layout_marginBottom="8dp"
             tools:text="Steigenberger Makadi" />
 
         <TextView
             style="@style/secondary_text_style"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginVertical="10dp"
+            android:layout_marginBottom="16dp"
             android:clickable="true"
             android:focusable="true"
             android:textColor="@color/blue"
@@ -72,9 +83,9 @@
                 style="@style/bold_text_style"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginEnd="10dp"
+                android:layout_marginEnd="8dp"
                 android:textSize="30sp"
-                tools:text="от 134 673" />
+                tools:text="от 134 673 ₽" />
 
             <TextView
                 style="@style/secondary_text_style"
