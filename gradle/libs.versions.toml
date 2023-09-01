@@ -26,6 +26,7 @@ constraintlayout = "2.1.4"
 detekt = "1.22.0"
 navigation-fragment-ktx = "2.7.1"
 viewbindingpropertydelegate-noreflection = "1.5.9"
+org-jetbrains-kotlin-jvm = "1.8.21"
 
 [libraries]
 androidx-lifecycle-runtime-ktx = { module = "androidx.lifecycle:lifecycle-runtime-ktx", version.ref = "lifecycle-viewmodel-ktx" }
@@ -56,5 +57,6 @@ kotlinAndroid = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
 kapt = { id = "org.jetbrains.kotlin.kapt", version.ref = "kapt" }
 detekt = { id = "io.gitlab.arturbosch.detekt", version.ref = "detekt" }
 androidLibrary = { id = "com.android.library", version.ref = "agp" }
+org-jetbrains-kotlin-jvm = { id = "org.jetbrains.kotlin.jvm", version.ref = "org-jetbrains-kotlin-jvm" }
 
 [bundles]
