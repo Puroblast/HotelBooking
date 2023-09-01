@@ -3,8 +3,6 @@ package com.puroblast.hotelbooking.di
 import android.app.Application
 import dagger.BindsInstance
 import dagger.Component
-import dagger.Module
-import javax.inject.Scope
 
 @[AppScope Component(modules = [AppModule::class])]
 interface AppComponent {
@@ -18,9 +16,3 @@ interface AppComponent {
         fun build(): AppComponent
     }
 }
-
-@Module
-class AppModule
-
-@Scope
-annotation class AppScope
