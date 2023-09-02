@@ -1,12 +1,11 @@
 plugins {
     alias(libs.plugins.androidLibrary)
     alias(libs.plugins.kotlinAndroid)
-    id("kotlin-kapt")
 }
 
 android {
 
-    namespace = "com.puroblast.feature_hotel_details"
+    namespace = "com.puroblast.common_recycler"
     compileSdk = libs.versions.compileSdk.get().toInt()
 
     defaultConfig {
@@ -31,31 +30,7 @@ android {
 
 dependencies {
 
-    implementation(project(":domain-hotel"))
-    implementation(project(":common-recycler"))
-
-
-    implementation(libs.core.ktx)
-    implementation(libs.appcompat)
     implementation(libs.material)
-    implementation(libs.constraintlayout)
-
-    //Dagger region
-    implementation(libs.dagger)
-    kapt(libs.dagger.compiler)
-    //Dagger endregion
-
-    //Circle indicator region
-    implementation(libs.circleindicator)
-    //Circle indicator endregion
-
-    //ViewBinding region
-    implementation(libs.viewbindingpropertydelegate.noreflection)
-    //ViewBinding endregion
-
-    //Coil region
-    implementation(libs.coil)
-    //Coil endregion
 
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.test.ext.junit)

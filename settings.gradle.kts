@@ -17,3 +17,4 @@ rootProject.name = "HotelBooking"
 include(":app")
 include(":domain-hotel")
 include(":feature-hotel-details")
+include(":common-recycler")
