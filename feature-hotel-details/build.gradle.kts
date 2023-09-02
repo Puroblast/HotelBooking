@@ -57,6 +57,16 @@ dependencies {
     implementation(libs.coil)
     //Coil endregion
 
+    //Coroutines region
+    implementation(libs.kotlinx.coroutines.core)
+    implementation(libs.kotlinx.coroutines.android)
+    //Coroutines endregion
+
+    //Lifecycle region
+    implementation(libs.androidx.lifecycle.viewmodel.ktx)
+    implementation(libs.androidx.lifecycle.runtime.ktx)
+    //Lifecycle endregion
+
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.test.ext.junit)
     androidTestImplementation(libs.espresso.core)

@@ -4,7 +4,7 @@ import com.puroblast.common_recycler.CommonDelegateItem
 import com.puroblast.domain_hotel.model.Hotel
 
 class HotelItem(
-    private val value : Hotel
+    private val value: Hotel
 ) : CommonDelegateItem {
     override fun content(): Any = value
 

@@ -27,4 +27,3 @@ object CommonDiffUtilCallback : DiffUtil.ItemCallback<CommonDelegateItem>() {
         return super.getChangePayload(oldItem, newItem)
     }
 }
-

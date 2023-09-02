@@ -10,5 +10,4 @@ interface CommonAdapterDelegate {
     fun onBindViewHolder(holder: RecyclerView.ViewHolder, item: CommonDelegateItem, position: Int)
 
     fun isOfViewType(item: CommonDelegateItem): Boolean
-
 }

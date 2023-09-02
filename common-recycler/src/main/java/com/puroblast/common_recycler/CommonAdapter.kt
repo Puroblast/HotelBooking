@@ -4,7 +4,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 
-class CommonAdapter : ListAdapter<CommonDelegateItem,RecyclerView.ViewHolder>(CommonDiffUtilCallback) {
+class CommonAdapter : ListAdapter<CommonDelegateItem, RecyclerView.ViewHolder>(CommonDiffUtilCallback) {
 
     private val delegates: MutableList<CommonAdapterDelegate> = mutableListOf()
 
@@ -23,5 +23,4 @@ class CommonAdapter : ListAdapter<CommonDelegateItem,RecyclerView.ViewHolder>(Co
     override fun getItemViewType(position: Int): Int {
         return delegates.indexOfFirst { it.isOfViewType(currentList[position]) }
     }
-
 }

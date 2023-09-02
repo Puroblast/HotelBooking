@@ -3,8 +3,8 @@ package com.puroblast.feature_hotel_details.recycler.model
 import com.puroblast.common_recycler.CommonDelegateItem
 
 class ImageItem(
-    private val id : Int,
-    private val value : String
+    private val id: Int,
+    private val value: String
 ) : CommonDelegateItem {
 
     override fun content(): Any = value
@@ -14,5 +14,4 @@ class ImageItem(
     override fun compareToOther(other: CommonDelegateItem): Boolean {
         return (other as ImageItem).value == content()
     }
-
 }
