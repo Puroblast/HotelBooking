@@ -1,4 +1,4 @@
-package com.puroblast.feature_hotel_details.recycler
+package com.puroblast.feature_hotel_details.ui.recycler
 
 import android.view.LayoutInflater
 import android.view.View
@@ -14,10 +14,10 @@ import com.puroblast.feature_hotel_details.R as featureHotelDetailsR
 import com.puroblast.feature_hotel_details.databinding.AboutHotelItemBinding
 import com.puroblast.feature_hotel_details.databinding.HotelItemBinding
 import com.puroblast.feature_hotel_details.databinding.ImageItemBinding
-import com.puroblast.feature_hotel_details.recycler.delegate.ImageAdapterDelegate
-import com.puroblast.feature_hotel_details.recycler.model.AboutHotelItem
-import com.puroblast.feature_hotel_details.recycler.model.HotelItem
-import com.puroblast.feature_hotel_details.recycler.model.ImageItem
+import com.puroblast.feature_hotel_details.ui.recycler.delegate.ImageAdapterDelegate
+import com.puroblast.feature_hotel_details.ui.recycler.model.AboutHotelItem
+import com.puroblast.feature_hotel_details.ui.recycler.model.HotelItem
+import com.puroblast.feature_hotel_details.ui.recycler.model.ImageItem
 
 class HotelViewHolder(private val view: View) : RecyclerView.ViewHolder(view) {
 

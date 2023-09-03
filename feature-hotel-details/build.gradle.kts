@@ -67,6 +67,11 @@ dependencies {
     implementation(libs.androidx.lifecycle.runtime.ktx)
     //Lifecycle endregion
 
+    //Navigation region
+    implementation(libs.androidx.navigation.fragment.ktx)
+    implementation(libs.androidx.navigation.ui.ktx)
+    //Navigation endregion
+
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.test.ext.junit)
     androidTestImplementation(libs.espresso.core)

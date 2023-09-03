@@ -1,4 +1,4 @@
-package com.puroblast.feature_hotel_details.recycler.model
+package com.puroblast.feature_hotel_details.ui.recycler.model
 
 import com.puroblast.common_recycler.CommonDelegateItem
 

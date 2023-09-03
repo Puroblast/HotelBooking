@@ -1,12 +1,12 @@
-package com.puroblast.feature_hotel_details.recycler.delegate
+package com.puroblast.feature_hotel_details.ui.recycler.delegate
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.puroblast.common_recycler.CommonAdapterDelegate
 import com.puroblast.common_recycler.CommonDelegateItem
-import com.puroblast.feature_hotel_details.recycler.HotelViewHolder
-import com.puroblast.feature_hotel_details.recycler.model.AboutHotelItem
+import com.puroblast.feature_hotel_details.ui.recycler.HotelViewHolder
+import com.puroblast.feature_hotel_details.ui.recycler.model.AboutHotelItem
 import com.puroblast.feature_hotel_details.R as featureHotelDetailsR
 
 class AboutHotelAdapterDelegate : CommonAdapterDelegate {
