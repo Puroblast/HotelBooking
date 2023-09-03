@@ -10,7 +10,7 @@ import com.puroblast.common_recycler.CommonAdapter
 import com.puroblast.common_recycler.CommonDelegateItem
 import com.puroblast.domain_hotel.model.AboutTheHotel
 import com.puroblast.domain_hotel.model.Hotel
-import com.puroblast.feature_hotel_details.R
+import com.puroblast.feature_hotel_details.R as featureHotelDetailsR
 import com.puroblast.feature_hotel_details.databinding.AboutHotelItemBinding
 import com.puroblast.feature_hotel_details.databinding.HotelItemBinding
 import com.puroblast.feature_hotel_details.databinding.ImageItemBinding
@@ -36,7 +36,7 @@ class HotelViewHolder(private val view: View) : RecyclerView.ViewHolder(view) {
                 hotelName.text = name
                 hotelPriceForIt.text = priceForIt
                 hotelPrice.text = view.context.getString(
-                    R.string.rouble_symbol,
+                    featureHotelDetailsR.string.rouble_symbol,
                     minimalPrice.toString()
                 )
                 hotelRatingChip.text = "$rating $ratingName"
@@ -60,7 +60,7 @@ class HotelViewHolder(private val view: View) : RecyclerView.ViewHolder(view) {
             with(aboutHotelItemBinding) {
                 peculiarities.forEach {
                     val chip = LayoutInflater.from(view.context).inflate(
-                        R.layout.chip_item, peculiaritiesChipGroup, false
+                        featureHotelDetailsR.layout.chip_item, peculiaritiesChipGroup, false
                     ) as Chip
                     chip.text = it
                     peculiaritiesChipGroup.addView(chip)
