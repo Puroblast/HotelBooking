@@ -1,6 +1,6 @@
 plugins {
+    id("java-library")
     alias(libs.plugins.org.jetbrains.kotlin.jvm)
-    id("kotlin-kapt")
 }
 
 java {
@@ -14,4 +14,6 @@ dependencies {
     implementation(libs.retrofit)
     implementation (libs.converter.gson)
     //Retrofit endregion
+
+    testImplementation(libs.junit)
 }

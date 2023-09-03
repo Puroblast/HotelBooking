@@ -1,9 +1,7 @@
 plugins {
-
     alias(libs.plugins.androidLibrary)
     alias(libs.plugins.kotlinAndroid)
     id("kotlin-kapt")
-    
 }
 
 android {
@@ -34,6 +32,8 @@ android {
 dependencies {
 
     implementation(project(":domain-hotel"))
+    implementation(project(":common-recycler"))
+
 
     implementation(libs.core.ktx)
     implementation(libs.appcompat)
@@ -48,6 +48,24 @@ dependencies {
     //Circle indicator region
     implementation(libs.circleindicator)
     //Circle indicator endregion
+
+    //ViewBinding region
+    implementation(libs.viewbindingpropertydelegate.noreflection)
+    //ViewBinding endregion
+
+    //Coil region
+    implementation(libs.coil)
+    //Coil endregion
+
+    //Coroutines region
+    implementation(libs.kotlinx.coroutines.core)
+    implementation(libs.kotlinx.coroutines.android)
+    //Coroutines endregion
+
+    //Lifecycle region
+    implementation(libs.androidx.lifecycle.viewmodel.ktx)
+    implementation(libs.androidx.lifecycle.runtime.ktx)
+    //Lifecycle endregion
 
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.test.ext.junit)

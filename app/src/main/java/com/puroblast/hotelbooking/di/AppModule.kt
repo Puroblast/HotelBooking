@@ -34,7 +34,7 @@ class AppModule {
         return api
     }
 
-    @[Provides AppScope]
+    @Provides
     fun provideHotelRepository(hotelApi: HotelApi): HotelRepository {
         return HotelRepository(hotelApi)
     }
