@@ -7,7 +7,6 @@ import androidx.lifecycle.viewmodel.CreationExtras
 import com.puroblast.domain_hotel.HotelRepository
 import com.puroblast.domain_hotel.model.Hotel
 import kotlinx.coroutines.flow.MutableStateFlow
-import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.launch
 import javax.inject.Inject
@@ -25,7 +24,8 @@ class HotelDetailsViewModel(
 
     private fun loadHotelDetails() {
         viewModelScope.launch {
-            hotelRepository.getHotel()
+            val hotel = hotelRepository.getHotel()
+            _state.value = _state.value.copy(hotel = hotel)
         }
     }
 
@@ -38,7 +38,5 @@ class HotelDetailsViewModel(
             require(modelClass == HotelDetailsViewModel::class.java)
             return HotelDetailsViewModel(hotelRepository) as T
         }
-
     }
-
 }

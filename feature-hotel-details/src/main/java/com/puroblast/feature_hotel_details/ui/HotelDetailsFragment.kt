@@ -10,6 +10,7 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.get
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
+import androidx.recyclerview.widget.LinearLayoutManager
 import by.kirich1409.viewbindingdelegate.viewBinding
 import com.puroblast.common_recycler.CommonAdapter
 import com.puroblast.feature_hotel_details.databinding.FragmentDetailsHotelBinding
@@ -47,22 +48,20 @@ class HotelDetailsFragment : Fragment(featureHotelDetailsR.layout.fragment_detai
         super.onViewCreated(view, savedInstanceState)
 
         val hotelAdapter = setupAdapter()
+        binding.recycler.adapter = hotelAdapter
+        binding.recycler.layoutManager = LinearLayoutManager(requireContext())
         render(hotelAdapter)
-
     }
 
     private fun setupAdapter(): CommonAdapter {
-
         val hotelAdapter = CommonAdapter().apply {
             addDelegate(HotelAdapterDelegate())
             addDelegate(AboutHotelAdapterDelegate())
         }
         return hotelAdapter
-
     }
 
     private fun render(adapter: CommonAdapter) {
-
         viewLifecycleOwner.lifecycleScope.launch {
             viewLifecycleOwner.repeatOnLifecycle(Lifecycle.State.RESUMED) {
                 hotelDetailsViewModel.state.collect { state ->
@@ -76,7 +75,5 @@ class HotelDetailsFragment : Fragment(featureHotelDetailsR.layout.fragment_detai
                 }
             }
         }
-
     }
-
 }

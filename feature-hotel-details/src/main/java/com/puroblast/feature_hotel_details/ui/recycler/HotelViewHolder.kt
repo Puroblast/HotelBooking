@@ -2,6 +2,7 @@ package com.puroblast.feature_hotel_details.ui.recycler
 
 import android.view.LayoutInflater
 import android.view.View
+import android.widget.ImageView
 import androidx.recyclerview.widget.RecyclerView
 import by.kirich1409.viewbindingdelegate.viewBinding
 import coil.load
@@ -18,6 +19,8 @@ import com.puroblast.feature_hotel_details.ui.recycler.delegate.ImageAdapterDele
 import com.puroblast.feature_hotel_details.ui.recycler.model.AboutHotelItem
 import com.puroblast.feature_hotel_details.ui.recycler.model.HotelItem
 import com.puroblast.feature_hotel_details.ui.recycler.model.ImageItem
+import java.text.DecimalFormat
+import java.text.DecimalFormatSymbols
 
 class HotelViewHolder(private val view: View) : RecyclerView.ViewHolder(view) {
 
@@ -26,6 +29,7 @@ class HotelViewHolder(private val view: View) : RecyclerView.ViewHolder(view) {
     private val aboutHotelItemBinding by viewBinding(AboutHotelItemBinding::bind)
 
     private fun bindImageItem(item: ImageItem) {
+        imageItemBinding.hotelImage.scaleType = ImageView.ScaleType.CENTER_CROP
         imageItemBinding.hotelImage.load(item.content())
     }
 
@@ -35,9 +39,11 @@ class HotelViewHolder(private val view: View) : RecyclerView.ViewHolder(view) {
                 hotelAddress.text = address
                 hotelName.text = name
                 hotelPriceForIt.text = priceForIt
+                val decimalFormatSymbols = DecimalFormatSymbols()
+                decimalFormatSymbols.groupingSeparator = ' '
+                val price = DecimalFormat("#,##0", decimalFormatSymbols).format(minimalPrice)
                 hotelPrice.text = view.context.getString(
-                    featureHotelDetailsR.string.rouble_symbol,
-                    minimalPrice.toString()
+                    featureHotelDetailsR.string.rouble_symbol, price.toString()
                 )
                 hotelRatingChip.text = "$rating $ratingName"
 
@@ -50,6 +56,7 @@ class HotelViewHolder(private val view: View) : RecyclerView.ViewHolder(view) {
                 for (index in imageUrls.indices) {
                     images.add(ImageItem(index, imageUrls[index]))
                 }
+                circleIndicator.createIndicators(images.size, 0)
                 viewPagerAdapter.submitList(images)
             }
         }
