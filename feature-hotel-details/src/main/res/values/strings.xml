@@ -6,6 +6,6 @@
     <string name="included_text">Что включено</string>
     <string name="excluded_text">Что не включено</string>
     <string name="about_the_hotel_text">Об отеле</string>
-    <string name="hotel_header_text">Отель</string>
-    <string name="rouble_symbol">%1sNBSP₽</string>
+    <string name="rouble_symbol">От %1s ₽</string>
+    <string name="hotel_details_title">Отель</string>
 </resources>

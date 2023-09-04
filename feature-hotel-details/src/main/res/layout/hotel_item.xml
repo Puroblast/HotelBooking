@@ -4,45 +4,48 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    app:cardCornerRadius="12dp">
+    app:cardBackgroundColor="@color/white"
+    app:cardCornerRadius="12dp"
+    app:strokeWidth="0dp">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        android:padding="16dp">
+        android:paddingHorizontal="16dp"
+        android:paddingBottom="16dp">
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:layout_marginBottom="16dp"
-            android:text="@string/hotel_header_text"
-            android:textAppearance="@style/bold_text_style" />
-
-        <FrameLayout
+        <com.google.android.material.card.MaterialCardView
             android:layout_width="343dp"
             android:layout_height="257dp"
-            android:layout_gravity="center_horizontal">
+            android:layout_gravity="center_horizontal"
+            app:cardCornerRadius="15dp">
 
-            <androidx.viewpager2.widget.ViewPager2
-                android:id="@+id/imageViewPager"
+            <FrameLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent" />
+                android:layout_height="match_parent">
 
-            <me.relex.circleindicator.CircleIndicator3
-                android:id="@+id/circleIndicator"
-                android:layout_width="wrap_content"
-                android:layout_height="17dp"
-                android:layout_gravity="center|bottom"
-                android:layout_marginBottom="8dp"
-                app:ci_gravity="center"
-                app:ci_height="5dp"
-                app:ci_margin="5dp"
-                app:ci_orientation="horizontal"
-                app:ci_width="5dp" />
+                <androidx.viewpager2.widget.ViewPager2
+                    android:id="@+id/imageViewPager"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" />
 
-        </FrameLayout>
+                <me.relex.circleindicator.CircleIndicator3
+                    android:id="@+id/circleIndicator"
+                    android:layout_width="wrap_content"
+                    android:layout_height="17dp"
+                    android:layout_gravity="center|bottom"
+                    android:layout_marginBottom="8dp"
+                    app:ci_gravity="center"
+                    app:ci_height="5dp"
+                    app:ci_margin="5dp"
+                    app:ci_orientation="horizontal"
+                    app:ci_width="5dp" />
+
+            </FrameLayout>
+
+        </com.google.android.material.card.MaterialCardView>
+
 
         <com.google.android.material.chip.Chip
             android:id="@+id/hotelRatingChip"
@@ -50,6 +53,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
             android:layout_marginBottom="8dp"
+            android:clickable="false"
             android:paddingHorizontal="10dp"
             android:paddingVertical="5dp"
             android:textAppearance="@style/primary_text_style"
@@ -58,6 +62,7 @@
             app:chipCornerRadius="5dp"
             app:chipIcon="@drawable/star_icon"
             app:chipIconVisible="true"
+            app:chipStrokeWidth="0dp"
             tools:text="5 Превосходно" />
 
         <TextView
@@ -77,6 +82,7 @@
             android:clickable="true"
             android:focusable="true"
             android:textColor="@color/blue"
+            android:textStyle="bold"
             tools:text="Madinat Makadi, Safaga Road, Makadi Bay, Египет" />
 
         <LinearLayout

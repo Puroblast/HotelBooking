@@ -1,11 +1,14 @@
 package com.puroblast.hotelbooking.di
 
 import android.app.Application
+import com.puroblast.feature_hotel_details.di.HotelDetailsDependencies
 import dagger.BindsInstance
 import dagger.Component
+import javax.inject.Singleton
 
+@Singleton
 @Component(modules = [AppModule::class])
-interface AppComponent {
+interface AppComponent : HotelDetailsDependencies {
 
     @Component.Builder
     interface Builder {

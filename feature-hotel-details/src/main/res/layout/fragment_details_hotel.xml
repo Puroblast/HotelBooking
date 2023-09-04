@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#F5F5F8"
+    android:orientation="vertical"
+    tools:context=".ui.HotelDetailsFragment">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <com.google.android.material.appbar.MaterialToolbar
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/white"
+            app:layout_constraintBottom_toTopOf="@id/recycler"
+            app:layout_constraintTop_toTopOf="parent"
+            app:title="@string/hotel_details_title"
+            app:titleCentered="true"
+            app:titleTextAppearance="@style/bold_text_style" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recycler"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="12dp"
+            android:overScrollMode="never"
+            app:layout_constraintBottom_toTopOf="@id/bottomCard" />
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/bottomCard"
+            android:layout_width="match_parent"
+            android:layout_height="88dp"
+            android:layout_gravity="bottom"
+            android:layout_marginTop="12dp"
+            app:layout_constraintBottom_toBottomOf="parent">
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/chooseRoomButton"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:layout_gravity="center"
+                android:layout_marginHorizontal="16dp"
+                android:backgroundTint="@color/blue"
+                android:text="@string/choose_room_button_text"
+                android:textAppearance="@style/primary_text_style"
+                android:textColor="@color/white"
+                app:cornerRadius="15dp" />
+
+        </androidx.cardview.widget.CardView>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+</ScrollView>

@@ -60,6 +60,11 @@ dependencies {
     implementation (libs.converter.gson)
     //Retrofit endregion
 
+    //Navigation region
+    implementation(libs.androidx.navigation.ui.ktx)
+    implementation(libs.androidx.navigation.fragment.ktx)
+    //Navigation endregion
+
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.test.ext.junit)
     androidTestImplementation(libs.espresso.core)
