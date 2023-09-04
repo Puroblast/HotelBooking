@@ -1,4 +1,4 @@
-package com.puroblast.feature_hotel_details.ui
+package com.puroblast.feature_hotel_details.ui.hotel_details
 
 import android.content.Context
 import android.os.Bundle
@@ -17,10 +17,10 @@ import com.puroblast.feature_hotel_details.databinding.FragmentDetailsHotelBindi
 import com.puroblast.feature_hotel_details.di.HotelDetailsComponentViewModel
 import com.puroblast.feature_hotel_details.presentation.HotelDetailsViewModel
 import com.puroblast.feature_hotel_details.R as featureHotelDetailsR
-import com.puroblast.feature_hotel_details.ui.recycler.delegate.AboutHotelAdapterDelegate
-import com.puroblast.feature_hotel_details.ui.recycler.delegate.HotelAdapterDelegate
-import com.puroblast.feature_hotel_details.ui.recycler.model.AboutHotelItem
-import com.puroblast.feature_hotel_details.ui.recycler.model.HotelItem
+import com.puroblast.feature_hotel_details.ui.recycler.delegate.hotel.AboutHotelAdapterDelegate
+import com.puroblast.feature_hotel_details.ui.recycler.delegate.hotel.HotelAdapterDelegate
+import com.puroblast.feature_hotel_details.ui.recycler.model.hotel.AboutHotelItem
+import com.puroblast.feature_hotel_details.ui.recycler.model.hotel.HotelItem
 import dagger.Lazy
 import kotlinx.coroutines.launch
 import javax.inject.Inject

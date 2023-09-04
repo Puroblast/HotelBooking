@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/hotelDetailsFragment"
-        android:name="com.puroblast.feature_hotel_details.ui.HotelDetailsFragment"
+        android:name="com.puroblast.feature_hotel_details.ui.hotel_details.HotelDetailsFragment"
         android:label="fragment_details_hotel"
         tools:layout="@layout/fragment_details_hotel" />
 </navigation>
