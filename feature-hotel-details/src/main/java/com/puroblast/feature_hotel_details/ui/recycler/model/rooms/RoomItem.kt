@@ -1,17 +1,16 @@
 package com.puroblast.feature_hotel_details.ui.recycler.model.rooms
 
 import com.puroblast.common_recycler.CommonDelegateItem
+import com.puroblast.domain_hotel.model.Room
 
-class RoomItem : CommonDelegateItem {
-    override fun content(): Any {
-        TODO("Not yet implemented")
-    }
+class RoomItem(
+    val value : Room
+) : CommonDelegateItem {
+    override fun content(): Any = value
 
-    override fun id(): Int {
-        TODO("Not yet implemented")
-    }
+    override fun id(): Int = value.id
 
     override fun compareToOther(other: CommonDelegateItem): Boolean {
-        TODO("Not yet implemented")
+        return (other as RoomItem).value == content()
     }
 }
