@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical"
     android:padding="16dp">
 
@@ -55,10 +55,10 @@
     <com.google.android.material.chip.Chip
         android:layout_width="wrap_content"
         android:layout_height="29dp"
-        app:chipStrokeWidth="0dp"
-        app:closeIcon="@drawable/close_icon"
         android:backgroundTint="#0A0D72FF"
-        android:textColor="#0D72FF"/>
+        android:textColor="#0D72FF"
+        app:chipStrokeWidth="0dp"
+        app:closeIcon="@drawable/close_icon" />
 
     <LinearLayout
         android:layout_width="wrap_content"
@@ -93,6 +93,6 @@
         android:backgroundTint="@color/blue"
         android:text="@string/choose_room_button_text"
         android:textAppearance="@style/primary_text_style"
-        android:textColor="@color/white"/>
+        android:textColor="@color/white" />
 
 </LinearLayout>

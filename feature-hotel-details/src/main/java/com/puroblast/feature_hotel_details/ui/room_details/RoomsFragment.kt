@@ -16,11 +16,11 @@ class RoomsFragment : Fragment(featureHotelDetailsR.layout.fragment_rooms) {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
         binding.roomToolBar.title = requireArguments().getString("hotelName")
         val hotelAdapter = setupAdapter()
         binding.recycler.adapter = hotelAdapter
         binding.recycler.layoutManager = LinearLayoutManager(requireContext())
-
     }
 
     private fun setupAdapter(): CommonAdapter {
