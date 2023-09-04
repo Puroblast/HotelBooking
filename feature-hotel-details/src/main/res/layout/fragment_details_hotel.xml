@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:background="#F5F5F8"
     android:orientation="vertical"
-    tools:context=".ui.HotelDetailsFragment">
+    tools:context=".ui.hotel_details.HotelDetailsFragment">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -45,10 +45,9 @@
                 android:layout_gravity="center"
                 android:layout_marginHorizontal="16dp"
                 android:backgroundTint="@color/blue"
-                android:text="@string/choose_room_button_text"
+                android:text="@string/choose_rooms_button_text"
                 android:textAppearance="@style/primary_text_style"
-                android:textColor="@color/white"
-                app:cornerRadius="15dp" />
+                android:textColor="@color/white"/>
 
         </androidx.cardview.widget.CardView>
 

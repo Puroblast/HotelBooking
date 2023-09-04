@@ -15,10 +15,10 @@ import com.puroblast.feature_hotel_details.R as featureHotelDetailsR
 import com.puroblast.feature_hotel_details.databinding.AboutHotelItemBinding
 import com.puroblast.feature_hotel_details.databinding.HotelItemBinding
 import com.puroblast.feature_hotel_details.databinding.ImageItemBinding
-import com.puroblast.feature_hotel_details.ui.recycler.delegate.ImageAdapterDelegate
-import com.puroblast.feature_hotel_details.ui.recycler.model.AboutHotelItem
-import com.puroblast.feature_hotel_details.ui.recycler.model.HotelItem
-import com.puroblast.feature_hotel_details.ui.recycler.model.ImageItem
+import com.puroblast.feature_hotel_details.ui.recycler.delegate.hotel.ImageAdapterDelegate
+import com.puroblast.feature_hotel_details.ui.recycler.model.hotel.AboutHotelItem
+import com.puroblast.feature_hotel_details.ui.recycler.model.hotel.HotelItem
+import com.puroblast.feature_hotel_details.ui.recycler.model.hotel.ImageItem
 import java.text.DecimalFormat
 import java.text.DecimalFormatSymbols
 

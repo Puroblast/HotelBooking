@@ -7,7 +7,20 @@
 
     <fragment
         android:id="@+id/hotelDetailsFragment"
-        android:name="com.puroblast.feature_hotel_details.ui.HotelDetailsFragment"
+        android:name="com.puroblast.feature_hotel_details.ui.hotel_details.HotelDetailsFragment"
         android:label="fragment_details_hotel"
-        tools:layout="@layout/fragment_details_hotel" />
+        tools:layout="@layout/fragment_details_hotel" >
+        <action
+            android:id="@+id/action_hotelDetailsFragment_to_roomsFragment"
+            app:destination="@id/roomsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/roomsFragment"
+        android:name="com.puroblast.feature_hotel_details.ui.room_details.RoomsFragment"
+        android:label="fragment_rooms"
+        tools:layout="@layout/fragment_rooms" >
+        <action
+            android:id="@+id/action_roomsFragment_to_hotelDetailsFragment"
+            app:destination="@id/hotelDetailsFragment" />
+    </fragment>
 </navigation>

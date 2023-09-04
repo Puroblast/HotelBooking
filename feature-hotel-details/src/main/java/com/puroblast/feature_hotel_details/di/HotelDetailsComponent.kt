@@ -1,6 +1,6 @@
 package com.puroblast.feature_hotel_details.di
 
-import com.puroblast.feature_hotel_details.ui.HotelDetailsFragment
+import com.puroblast.feature_hotel_details.ui.hotel_details.HotelDetailsFragment
 import dagger.Component
 
 @Component(dependencies = [HotelDetailsDependencies::class])
