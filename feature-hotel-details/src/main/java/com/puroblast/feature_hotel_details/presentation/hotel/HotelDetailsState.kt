@@ -1,4 +1,4 @@
-package com.puroblast.feature_hotel_details.presentation
+package com.puroblast.feature_hotel_details.presentation.hotel
 
 import com.puroblast.domain_hotel.model.Hotel
 

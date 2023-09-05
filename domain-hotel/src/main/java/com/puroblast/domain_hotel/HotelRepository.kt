@@ -2,7 +2,7 @@ package com.puroblast.domain_hotel
 
 import com.puroblast.domain_hotel.model.BookingDetails
 import com.puroblast.domain_hotel.model.Hotel
-import com.puroblast.domain_hotel.model.Room
+import com.puroblast.domain_hotel.model.Rooms
 
 class HotelRepository(private val hotelApi: HotelApi) {
 
@@ -10,7 +10,7 @@ class HotelRepository(private val hotelApi: HotelApi) {
         return hotelApi.getHotelDetails()
     }
 
-    suspend fun getHotelRooms(): List<Room> {
+    suspend fun getHotelRooms(): Rooms {
         return hotelApi.getHotelRooms()
     }
 

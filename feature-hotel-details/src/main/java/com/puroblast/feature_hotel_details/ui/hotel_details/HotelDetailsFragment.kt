@@ -11,17 +11,18 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.get
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
-import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import by.kirich1409.viewbindingdelegate.viewBinding
 import com.puroblast.common_recycler.CommonAdapter
 import com.puroblast.feature_hotel_details.databinding.FragmentDetailsHotelBinding
 import com.puroblast.feature_hotel_details.di.HotelDetailsComponentViewModel
-import com.puroblast.feature_hotel_details.presentation.HotelDetailsViewModel
+import com.puroblast.feature_hotel_details.presentation.hotel.HotelDetailsViewModel
 import com.puroblast.feature_hotel_details.R as featureHotelDetailsR
 import com.puroblast.feature_hotel_details.ui.recycler.delegate.hotel.AboutHotelAdapterDelegate
+import com.puroblast.feature_hotel_details.ui.recycler.delegate.hotel.BottomItemAdapterDelegate
 import com.puroblast.feature_hotel_details.ui.recycler.delegate.hotel.HotelAdapterDelegate
 import com.puroblast.feature_hotel_details.ui.recycler.model.hotel.AboutHotelItem
+import com.puroblast.feature_hotel_details.ui.recycler.model.hotel.BottomItem
 import com.puroblast.feature_hotel_details.ui.recycler.model.hotel.HotelItem
 import dagger.Lazy
 import kotlinx.coroutines.launch
@@ -40,9 +41,8 @@ class HotelDetailsFragment : Fragment(featureHotelDetailsR.layout.fragment_detai
     }
 
     override fun onAttach(context: Context) {
-        ViewModelProvider(this).get<HotelDetailsComponentViewModel>().hotelDetailsComponent.inject(
-            this
-        )
+        ViewModelProvider(this).get<HotelDetailsComponentViewModel>()
+            .hotelDetailsComponent.inject(this)
 
         super.onAttach(context)
     }
@@ -51,22 +51,17 @@ class HotelDetailsFragment : Fragment(featureHotelDetailsR.layout.fragment_detai
         super.onViewCreated(view, savedInstanceState)
 
         val hotelAdapter = setupAdapter()
-        binding.recycler.adapter = hotelAdapter
-        binding.recycler.layoutManager = LinearLayoutManager(requireContext())
         render(hotelAdapter)
-
-        binding.chooseRoomButton.setOnClickListener {
-            findNavController().navigate(
-                featureHotelDetailsR.id.action_hotelDetailsFragment_to_roomsFragment, args
-            )
-        }
     }
 
     private fun setupAdapter(): CommonAdapter {
         val hotelAdapter = CommonAdapter().apply {
             addDelegate(HotelAdapterDelegate())
             addDelegate(AboutHotelAdapterDelegate())
+            addDelegate(BottomItemAdapterDelegate(args))
         }
+        binding.recycler.adapter = hotelAdapter
+        binding.recycler.layoutManager = LinearLayoutManager(requireContext())
         return hotelAdapter
     }
 
@@ -77,9 +72,10 @@ class HotelDetailsFragment : Fragment(featureHotelDetailsR.layout.fragment_detai
                     val hotelItem = HotelItem(value = state.hotel)
                     args.putString("hotelName", state.hotel.name)
                     val aboutHotelItem = AboutHotelItem(value = state.hotel.aboutTheHotel)
+                    val bottomItem = BottomItem()
                     adapter.submitList(
                         listOf(
-                            hotelItem, aboutHotelItem
+                            hotelItem, aboutHotelItem, bottomItem
                         )
                     )
                 }
