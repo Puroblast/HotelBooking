@@ -41,7 +41,6 @@ class RoomsFragment : Fragment(featureHotelDetailsR.layout.fragment_rooms) {
         super.onAttach(context)
     }
 
-
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
@@ -60,7 +59,6 @@ class RoomsFragment : Fragment(featureHotelDetailsR.layout.fragment_rooms) {
     }
 
     private fun render(adapter: CommonAdapter) {
-
         viewLifecycleOwner.lifecycleScope.launch {
             viewLifecycleOwner.repeatOnLifecycle(Lifecycle.State.RESUMED) {
                 viewModel.state.collect { state ->
@@ -73,6 +71,5 @@ class RoomsFragment : Fragment(featureHotelDetailsR.layout.fragment_rooms) {
                 }
             }
         }
-
     }
 }

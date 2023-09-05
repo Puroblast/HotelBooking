@@ -82,7 +82,6 @@ class HotelViewHolder(private val view: View) : RecyclerView.ViewHolder(view) {
     }
 
     private fun bindRoomItem(item: RoomItem) {
-
         with(item.content() as Room) {
             with(roomItemBinding) {
                 roomName.text = name
@@ -108,7 +107,6 @@ class HotelViewHolder(private val view: View) : RecyclerView.ViewHolder(view) {
                 }
                 circleIndicator.createIndicators(images.size, 0)
                 viewPagerAdapter.submitList(images)
-
             }
         }
     }
