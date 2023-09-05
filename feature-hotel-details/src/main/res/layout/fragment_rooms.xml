@@ -14,7 +14,7 @@
         app:layout_constraintTop_toTopOf="parent"
         app:navigationIcon="@drawable/navigation_icon"
         app:titleCentered="true"
-        app:titleTextAppearance="@style/bold_text_style" />
+        app:titleTextAppearance="@style/bold_text_style"/>
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recycler"

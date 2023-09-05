@@ -57,6 +57,7 @@
         android:layout_height="29dp"
         android:backgroundTint="#0A0D72FF"
         android:textColor="#0D72FF"
+        android:text="@string/about_the_room_text"
         app:chipStrokeWidth="0dp"
         app:closeIcon="@drawable/close_icon" />
 
@@ -66,7 +67,7 @@
         android:orientation="horizontal">
 
         <TextView
-            android:id="@+id/hotelPrice"
+            android:id="@+id/roomPriceText"
             style="@style/bold_text_style"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -75,7 +76,7 @@
             tools:text="от 134 673 ₽" />
 
         <TextView
-            android:id="@+id/hotelPriceForIt"
+            android:id="@+id/roomPriceForIt"
             style="@style/secondary_text_style"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

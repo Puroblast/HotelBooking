@@ -1,4 +1,4 @@
-package com.puroblast.feature_hotel_details.ui.recycler.delegate.hotel
+package com.puroblast.feature_hotel_details.ui.recycler.delegate
 
 import android.view.LayoutInflater
 import android.view.ViewGroup

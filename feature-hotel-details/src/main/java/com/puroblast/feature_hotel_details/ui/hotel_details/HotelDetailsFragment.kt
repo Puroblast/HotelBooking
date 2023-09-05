@@ -17,7 +17,7 @@ import by.kirich1409.viewbindingdelegate.viewBinding
 import com.puroblast.common_recycler.CommonAdapter
 import com.puroblast.feature_hotel_details.databinding.FragmentDetailsHotelBinding
 import com.puroblast.feature_hotel_details.di.HotelDetailsComponentViewModel
-import com.puroblast.feature_hotel_details.presentation.HotelDetailsViewModel
+import com.puroblast.feature_hotel_details.presentation.hotel.HotelDetailsViewModel
 import com.puroblast.feature_hotel_details.R as featureHotelDetailsR
 import com.puroblast.feature_hotel_details.ui.recycler.delegate.hotel.AboutHotelAdapterDelegate
 import com.puroblast.feature_hotel_details.ui.recycler.delegate.hotel.HotelAdapterDelegate
