@@ -4,6 +4,7 @@ coil = "2.4.0"
 converterGson = "2.3.0"
 dagger = "2.44"
 daggerCompiler = "2.44"
+expandablelayout = "1.0.7"
 minSdk = "24"
 retrofit = "2.9.0"
 targetSdk = "33"
@@ -39,6 +40,7 @@ converter-gson = { module = "com.squareup.retrofit2:converter-gson", version.ref
 core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "core-ktx" }
 dagger = { module = "com.google.dagger:dagger", version.ref = "dagger" }
 dagger-compiler = { module = "com.google.dagger:dagger-compiler", version.ref = "daggerCompiler" }
+expandablelayout = { module = "com.github.skydoves:expandablelayout", version.ref = "expandablelayout" }
 junit = { group = "junit", name = "junit", version.ref = "junit" }
 androidx-test-ext-junit = { group = "androidx.test.ext", name = "junit", version.ref = "androidx-test-ext-junit" }
 espresso-core = { group = "androidx.test.espresso", name = "espresso-core", version.ref = "espresso-core" }

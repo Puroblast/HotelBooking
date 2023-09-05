@@ -73,6 +73,10 @@ dependencies {
     implementation(libs.androidx.navigation.ui.ktx)
     //Navigation endregion
 
+    //Expandable layout region
+    implementation(libs.expandablelayout)
+    //Expandable layout endregion
+
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.test.ext.junit)
     androidTestImplementation(libs.espresso.core)
