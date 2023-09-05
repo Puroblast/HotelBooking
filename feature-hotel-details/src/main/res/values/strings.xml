@@ -7,6 +7,7 @@
     <string name="excluded_text">Что не включено</string>
     <string name="about_the_hotel_text">Об отеле</string>
     <string name="rouble_symbol">От %1s ₽</string>
+    <string name="room_rouble_symbol">%1s ₽</string>
     <string name="hotel_details_title">Отель</string>
     <string name="choose_room_button_text">Выбрать номер</string>
     <string name="about_the_room_text">Подробнее о номере</string>

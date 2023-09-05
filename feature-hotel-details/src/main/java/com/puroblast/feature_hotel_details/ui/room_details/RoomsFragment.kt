@@ -10,6 +10,7 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.get
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import by.kirich1409.viewbindingdelegate.viewBinding
 import com.puroblast.common_recycler.CommonAdapter
@@ -34,9 +35,8 @@ class RoomsFragment : Fragment(featureHotelDetailsR.layout.fragment_rooms) {
     }
 
     override fun onAttach(context: Context) {
-        ViewModelProvider(this).get<HotelDetailsComponentViewModel>().hotelDetailsComponent.inject(
-            this
-        )
+        ViewModelProvider(this).get<HotelDetailsComponentViewModel>()
+            .hotelDetailsComponent.inject(this)
 
         super.onAttach(context)
     }
@@ -44,18 +44,24 @@ class RoomsFragment : Fragment(featureHotelDetailsR.layout.fragment_rooms) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        binding.roomToolBar.title = requireArguments().getString("hotelName")
         val roomAdapter = setupAdapter()
-        binding.recycler.adapter = roomAdapter
-        binding.recycler.layoutManager = LinearLayoutManager(requireContext())
         render(roomAdapter)
+
+        binding.roomToolBar.setOnClickListener {
+            findNavController().popBackStack()
+        }
+        binding.roomToolBar.title = requireArguments().getString("hotelName")
     }
 
     private fun setupAdapter(): CommonAdapter {
-        val hotelAdapter = CommonAdapter().apply {
+        val roomAdapter = CommonAdapter().apply {
             addDelegate(RoomAdapterDelegate())
         }
-        return hotelAdapter
+
+        binding.recycler.adapter = roomAdapter
+        binding.recycler.layoutManager = LinearLayoutManager(requireContext())
+
+        return roomAdapter
     }
 
     private fun render(adapter: CommonAdapter) {
