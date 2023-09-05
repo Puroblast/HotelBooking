@@ -33,6 +33,7 @@ dependencies {
 
     implementation(project(":domain-hotel"))
     implementation(project(":common-recycler"))
+    implementation(project(":common-resources"))
 
 
     implementation(libs.core.ktx)

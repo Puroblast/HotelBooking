@@ -1,32 +1,19 @@
 plugins {
-    alias(libs.plugins.androidApplication)
+    alias(libs.plugins.androidLibrary)
     alias(libs.plugins.kotlinAndroid)
     id("kotlin-kapt")
 }
 
 android {
-    namespace = "com.puroblast.hotelbooking"
+
+    namespace = "com.puroblast.feature_hotel_booking"
     compileSdk = libs.versions.compileSdk.get().toInt()
 
     defaultConfig {
-        applicationId = "com.puroblast.hotelbooking"
         minSdk = libs.versions.minSdk.get().toInt()
         targetSdk = libs.versions.targetSdk.get().toInt()
-        versionCode = libs.versions.versionCode.get().toInt()
-        versionName = libs.versions.versionName.get()
-
-        testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
 
-    buildTypes {
-        release {
-            isDebuggable = false
-            isMinifyEnabled = false
-            proguardFiles(
-                getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro"
-            )
-        }
-    }
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_17
         targetCompatibility = JavaVersion.VERSION_17
@@ -38,13 +25,16 @@ android {
     buildFeatures {
         viewBinding = true
     }
+
 }
 
 
 dependencies {
+
     implementation(project(":domain-hotel"))
-    implementation(project(":feature-hotel-details"))
-    implementation(project(":feature-hotel-booking"))
+    implementation(project(":common-recycler"))
+    implementation(project(":common-resources"))
+
 
     implementation(libs.core.ktx)
     implementation(libs.appcompat)
@@ -56,14 +46,31 @@ dependencies {
     kapt(libs.dagger.compiler)
     //Dagger endregion
 
-    //Retrofit region
-    implementation(libs.retrofit)
-    implementation (libs.converter.gson)
-    //Retrofit endregion
+    //Circle indicator region
+    implementation(libs.circleindicator)
+    //Circle indicator endregion
+
+    //ViewBinding region
+    implementation(libs.viewbindingpropertydelegate.noreflection)
+    //ViewBinding endregion
+
+    //Coil region
+    implementation(libs.coil)
+    //Coil endregion
+
+    //Coroutines region
+    implementation(libs.kotlinx.coroutines.core)
+    implementation(libs.kotlinx.coroutines.android)
+    //Coroutines endregion
+
+    //Lifecycle region
+    implementation(libs.androidx.lifecycle.viewmodel.ktx)
+    implementation(libs.androidx.lifecycle.runtime.ktx)
+    //Lifecycle endregion
 
     //Navigation region
-    implementation(libs.androidx.navigation.ui.ktx)
     implementation(libs.androidx.navigation.fragment.ktx)
+    implementation(libs.androidx.navigation.ui.ktx)
     //Navigation endregion
 
     testImplementation(libs.junit)

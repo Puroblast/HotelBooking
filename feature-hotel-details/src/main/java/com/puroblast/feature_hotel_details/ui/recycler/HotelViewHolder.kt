@@ -27,6 +27,7 @@ import com.puroblast.feature_hotel_details.ui.recycler.model.hotel.BottomItem
 import com.puroblast.feature_hotel_details.ui.recycler.model.hotel.HotelItem
 import com.puroblast.feature_hotel_details.ui.recycler.model.hotel.ImageItem
 import com.puroblast.feature_hotel_details.ui.recycler.model.rooms.RoomItem
+import com.puroblast.common_resources.R as commonResourcesR
 import java.text.DecimalFormat
 import java.text.DecimalFormatSymbols
 
@@ -54,7 +55,7 @@ class HotelViewHolder(private val view: View) : RecyclerView.ViewHolder(view) {
             decimalFormatSymbols.groupingSeparator = ' '
             val price = DecimalFormat("#,##0", decimalFormatSymbols).format(hotel.minimalPrice)
             hotelPrice.text = view.context.getString(
-                featureHotelDetailsR.string.rouble_symbol, price.toString()
+                commonResourcesR.string.rouble_symbol, price.toString()
             )
             hotelRatingChip.text = "${hotel.rating} ${hotel.ratingName}"
 
@@ -94,7 +95,7 @@ class HotelViewHolder(private val view: View) : RecyclerView.ViewHolder(view) {
             decimalFormatSymbols.groupingSeparator = ' '
             val price = DecimalFormat("#,##0", decimalFormatSymbols).format(room.price)
             roomPriceText.text = view.context.getString(
-                featureHotelDetailsR.string.room_rouble_symbol, price.toString()
+                commonResourcesR.string.room_rouble_symbol, price.toString()
             )
             roomPriceForIt.text = room.pricePer
 
