@@ -4,7 +4,7 @@ import com.puroblast.common_recycler.CommonDelegateItem
 import com.puroblast.feature_hotel_details.R
 
 class BottomItem(
-    val value: Int = R.layout.bottom_button_item
+    val value: Int = R.layout.choose_room_bottom_button_item
 ) : CommonDelegateItem {
     override fun content(): Any = value
 

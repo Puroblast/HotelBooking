@@ -14,7 +14,7 @@ class BottomItemAdapterDelegate(val args: Bundle) : CommonAdapterDelegate {
 
     override fun onCreateViewHolder(parent: ViewGroup): RecyclerView.ViewHolder {
         val view = LayoutInflater.from(parent.context).inflate(
-            featureHotelDetailsR.layout.bottom_button_item,
+            featureHotelDetailsR.layout.choose_room_bottom_button_item,
             parent,
             false
         )
