@@ -2,7 +2,6 @@ package com.puroblast.feature_hotel_booking.ui.hotel_booking
 
 import android.content.Context
 import android.os.Bundle
-import android.util.Log
 import android.view.View
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
@@ -14,23 +13,16 @@ import androidx.lifecycle.repeatOnLifecycle
 import androidx.recyclerview.widget.LinearLayoutManager
 import by.kirich1409.viewbindingdelegate.viewBinding
 import com.puroblast.common_recycler.CommonAdapter
-import com.puroblast.domain_hotel.model.BookingDetails
 import com.puroblast.feature_hotel_booking.databinding.FragmentHotelBookingBinding
 import com.puroblast.feature_hotel_booking.di.HotelBookingComponentViewModel
 import com.puroblast.feature_hotel_booking.presentation.HotelBookingViewModel
-import com.puroblast.feature_hotel_booking.ui.HotelBookingUiStateMapper
+import com.puroblast.feature_hotel_booking.presentation.HotelBookingUiStateMapper
 import com.puroblast.feature_hotel_booking.ui.recycler.delegate.BookingInfoAdapterDelegate
 import com.puroblast.feature_hotel_booking.ui.recycler.delegate.BottomAdapterDelegate
 import com.puroblast.feature_hotel_booking.ui.recycler.delegate.BuyerInfoAdapterDelegate
 import com.puroblast.feature_hotel_booking.ui.recycler.delegate.HotelInfoAdapterDelegate
 import com.puroblast.feature_hotel_booking.ui.recycler.delegate.TourPaymentInfoAdapterDelegate
 import com.puroblast.feature_hotel_booking.ui.recycler.delegate.TouristInfoAdapterDelegate
-import com.puroblast.feature_hotel_booking.ui.recycler.model.BookHotelBottomItem
-import com.puroblast.feature_hotel_booking.ui.recycler.model.BookingInfoItem
-import com.puroblast.feature_hotel_booking.ui.recycler.model.BuyerInfoItem
-import com.puroblast.feature_hotel_booking.ui.recycler.model.HotelInfoItem
-import com.puroblast.feature_hotel_booking.ui.recycler.model.TourPaymentInfoItem
-import com.puroblast.feature_hotel_booking.ui.recycler.model.TouristInfoItem
 import dagger.Lazy
 import kotlinx.coroutines.launch
 import javax.inject.Inject

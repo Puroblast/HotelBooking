@@ -5,6 +5,7 @@ import android.view.View
 import androidx.recyclerview.widget.RecyclerView
 import android.transition.AutoTransition
 import android.util.Log
+import androidx.core.view.isVisible
 import by.kirich1409.viewbindingdelegate.viewBinding
 import com.puroblast.common_recycler.CommonDelegateItem
 import com.puroblast.domain_hotel.model.BookingDetails
@@ -24,7 +25,7 @@ import com.puroblast.feature_hotel_booking.ui.recycler.model.TouristInfoItem
 import com.puroblast.common_resources.R as commonResourcesR
 
 class HotelBookViewHolder(
-    private val view: View
+    view: View
 ) : RecyclerView.ViewHolder(view) {
 
     private val tourPaymentBinding by viewBinding(TourPaymentInfoItemBinding::bind)
@@ -46,7 +47,7 @@ class HotelBookViewHolder(
     }
 
     private fun bindTourPaymentInfoItem(item: CommonDelegateItem) {
-        val bookingDetails = item.content() as HotelBookingState
+        val bookingDetails = item.content() as BookingDetails
         with(tourPaymentBinding) {
             val tourPrice = bookingDetails.tourPrice
             val fuelCharge = bookingDetails.fuelCharge
@@ -62,13 +63,13 @@ class HotelBookViewHolder(
     private fun bindTouristInfoItem() {
         with(touristInfoBinding) {
             addButton.setOnClickListener {
-                if (hiddenView.visibility == View.VISIBLE) {
+                if (hiddenView.isVisible) {
                     TransitionManager.beginDelayedTransition(touristCardView, AutoTransition())
-                    hiddenView.visibility = View.GONE
+                    hiddenView.isVisible = false
                     addButton.setImageResource(commonResourcesR.drawable.collapsed_arrow)
                 } else {
                     TransitionManager.beginDelayedTransition(touristCardView, AutoTransition())
-                    hiddenView.visibility = View.VISIBLE
+                    hiddenView.isVisible = true
                     addButton.setImageResource(commonResourcesR.drawable.expanded_arrow)
                 }
             }
@@ -76,7 +77,7 @@ class HotelBookViewHolder(
     }
 
     private fun bindHotelInfoItem(item: CommonDelegateItem) {
-        val bookingDetails = item.content() as HotelBookingState
+        val bookingDetails = item.content() as BookingDetails
         with(hotelInfoBinding) {
             hotelRatingChip.text = "${bookingDetails.hotelRating} ${bookingDetails.ratingName}"
             hotelName.text = bookingDetails.hotelName
@@ -88,7 +89,7 @@ class HotelBookViewHolder(
     }
 
     private fun bindBookingInfoItem(item: CommonDelegateItem) {
-        val bookingDetails = item.content() as HotelBookingState
+        val bookingDetails = item.content() as BookingDetails
         with(bookingInfoBinding) {
             departureFromText.text = bookingDetails.departure
             countryAndCityText.text = bookingDetails.arrivalCountry

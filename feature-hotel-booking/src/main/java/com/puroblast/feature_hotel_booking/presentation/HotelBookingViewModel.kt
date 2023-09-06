@@ -26,21 +26,7 @@ class HotelBookingViewModel(
         viewModelScope.launch {
             val bookingDetails = hotelRepository.getBookingDetails()
             _state.value = _state.value.copy(
-                id = bookingDetails.id,
-                hotelName = bookingDetails.hotelName,
-                hotelAddress = bookingDetails.hotelAddress,
-                hotelRating = bookingDetails.hotelRating,
-                ratingName = bookingDetails.ratingName,
-                departure = bookingDetails.departure,
-                arrivalCountry = bookingDetails.arrivalCountry,
-                tourDateStart = bookingDetails.tourDateStart,
-                tourDateStop = bookingDetails.tourDateStop,
-                numberOfNights = bookingDetails.numberOfNights,
-                room = bookingDetails.room,
-                nutrition = bookingDetails.nutrition,
-                tourPrice = bookingDetails.tourPrice,
-                fuelCharge = bookingDetails.fuelCharge,
-                serviceCharge = bookingDetails.serviceCharge,
+                bookingDetails = bookingDetails,
                 tourists = listOf()
             )
         }

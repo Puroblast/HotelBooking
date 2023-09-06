@@ -1,4 +1,4 @@
-package com.puroblast.feature_hotel_booking.ui
+package com.puroblast.feature_hotel_booking.presentation
 
 import com.puroblast.common_recycler.CommonDelegateItem
 
