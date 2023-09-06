@@ -1,10 +1,10 @@
 package com.puroblast.feature_hotel_booking.ui.recycler.model
 
 import com.puroblast.common_recycler.CommonDelegateItem
-import com.puroblast.domain_hotel.model.BookingDetails
+import com.puroblast.feature_hotel_booking.presentation.HotelBookingState
 
 class HotelInfoItem(
-    private val value: BookingDetails
+    private val value: HotelBookingState
 ) : CommonDelegateItem {
     override fun content(): Any = value
 

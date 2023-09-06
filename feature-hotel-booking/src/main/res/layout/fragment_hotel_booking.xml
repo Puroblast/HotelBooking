@@ -17,16 +17,25 @@
             android:background="@color/white"
             app:layout_collapseMode="pin"
             app:layout_scrollFlags="scroll|enterAlways|snap"
-            app:title="@string/hotel_details_title"
+            app:navigationIcon="@drawable/navigation_icon"
+            app:title="@string/booking_title"
             app:titleCentered="true"
             app:titleTextAppearance="@style/bold_text_style" />
 
     </com.google.android.material.appbar.AppBarLayout>
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recycler"
+    <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior" />
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recycler"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+    </androidx.core.widget.NestedScrollView>
+
+
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

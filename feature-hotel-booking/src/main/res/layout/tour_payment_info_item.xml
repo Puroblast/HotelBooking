@@ -21,7 +21,7 @@
             android:textSize="16sp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            tools:text="Тур" />
+            android:text="@string/tour" />
 
         <TextView
             android:id="@+id/tourPaymentText"
@@ -40,7 +40,7 @@
             android:textSize="16sp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="@id/fuelChargeText"
-            tools:text="Топливный сбор" />
+            android:text="@string/fuel_charge" />
 
         <TextView
             android:id="@+id/fuelChargeText"
@@ -60,7 +60,7 @@
             android:textSize="16sp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="@id/serviceChargeText"
-            tools:text="Сервисный сбор" />
+            android:text="@string/service_charge" />
 
         <TextView
             android:id="@+id/serviceChargeText"
@@ -80,7 +80,7 @@
             android:textSize="16sp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="@id/overallPaymentText"
-            tools:text="К оплате" />
+            android:text="@string/payment" />
 
         <TextView
             android:id="@+id/overallPaymentText"

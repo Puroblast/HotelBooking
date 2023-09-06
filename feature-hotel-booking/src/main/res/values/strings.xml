@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="booking_title">Бронирование</string>
+    <string name="departure_from">Вылет из</string>
+    <string name="country_city">Страна, город</string>
+    <string name="dates">Даты</string>
+    <string name="nights_count">Кол-во ночей</string>
+    <string name="hotel">Отель</string>
+    <string name="room">Номер</string>
+    <string name="nutrition">Питание</string>
+    <string name="tour">Тур</string>
+    <string name="fuel_charge">Топливный сбор</string>
+    <string name="service_charge">Сервисный сбор</string>
+    <string name="payment">К оплате</string>
+</resources>

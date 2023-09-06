@@ -23,7 +23,7 @@
             android:textSize="16sp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            tools:text="Вылет из" />
+            android:text="@string/departure_from" />
 
         <TextView
             android:id="@+id/departureFromText"
@@ -32,7 +32,7 @@
             android:textAppearance="@style/primary_text_style"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            tools:text="Санкт-Петербург" />
+            tools:text="Санкт Петербург" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -41,7 +41,7 @@
             android:textSize="16sp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="@id/countryAndCityText"
-            tools:text="Страна, город" />
+            android:text="@string/country_city" />
 
         <TextView
             android:id="@+id/countryAndCityText"
@@ -60,7 +60,7 @@
             android:textSize="16sp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="@id/datesText"
-            tools:text="Даты" />
+            android:text="@string/dates" />
 
         <TextView
             android:id="@+id/datesText"
@@ -79,7 +79,7 @@
             android:textSize="16sp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="@id/nightsAmountText"
-            tools:text="Кол-во ночей" />
+            android:text="@string/nights_count" />
 
         <TextView
             android:id="@+id/nightsAmountText"
@@ -98,7 +98,7 @@
             android:textSize="16sp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="@id/hotelNameText"
-            tools:text="Отель" />
+            android:text="@string/hotel" />
 
         <TextView
             android:id="@+id/hotelNameText"
@@ -117,7 +117,7 @@
             android:textSize="16sp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="@id/roomNameText"
-            tools:text="Номер" />
+            android:text="@string/room" />
 
         <TextView
             android:id="@+id/roomNameText"
@@ -136,7 +136,7 @@
             android:textSize="16sp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="@id/foodTypeText"
-            tools:text="Питание" />
+            android:text="@string/nutrition" />
 
         <TextView
             android:id="@+id/foodTypeText"

@@ -4,6 +4,7 @@ import android.transition.TransitionManager
 import android.view.View
 import androidx.recyclerview.widget.RecyclerView
 import android.transition.AutoTransition
+import android.util.Log
 import by.kirich1409.viewbindingdelegate.viewBinding
 import com.puroblast.common_recycler.CommonDelegateItem
 import com.puroblast.domain_hotel.model.BookingDetails
@@ -13,6 +14,7 @@ import com.puroblast.feature_hotel_booking.databinding.BuyerInfoItemBinding
 import com.puroblast.feature_hotel_booking.databinding.HotelInfoItemBinding
 import com.puroblast.feature_hotel_booking.databinding.TourPaymentInfoItemBinding
 import com.puroblast.feature_hotel_booking.databinding.TouristInfoItemBinding
+import com.puroblast.feature_hotel_booking.presentation.HotelBookingState
 import com.puroblast.feature_hotel_booking.ui.recycler.model.BookHotelBottomItem
 import com.puroblast.feature_hotel_booking.ui.recycler.model.BookingInfoItem
 import com.puroblast.feature_hotel_booking.ui.recycler.model.BuyerInfoItem
@@ -44,7 +46,7 @@ class HotelBookViewHolder(
     }
 
     private fun bindTourPaymentInfoItem(item: CommonDelegateItem) {
-        val bookingDetails = item.content() as BookingDetails
+        val bookingDetails = item.content() as HotelBookingState
         with(tourPaymentBinding) {
             val tourPrice = bookingDetails.tourPrice
             val fuelCharge = bookingDetails.fuelCharge
@@ -74,7 +76,7 @@ class HotelBookViewHolder(
     }
 
     private fun bindHotelInfoItem(item: CommonDelegateItem) {
-        val bookingDetails = item.content() as BookingDetails
+        val bookingDetails = item.content() as HotelBookingState
         with(hotelInfoBinding) {
             hotelRatingChip.text = "${bookingDetails.hotelRating} ${bookingDetails.ratingName}"
             hotelName.text = bookingDetails.hotelName
@@ -86,7 +88,7 @@ class HotelBookViewHolder(
     }
 
     private fun bindBookingInfoItem(item: CommonDelegateItem) {
-        val bookingDetails = item.content() as BookingDetails
+        val bookingDetails = item.content() as HotelBookingState
         with(bookingInfoBinding) {
             departureFromText.text = bookingDetails.departure
             countryAndCityText.text = bookingDetails.arrivalCountry
