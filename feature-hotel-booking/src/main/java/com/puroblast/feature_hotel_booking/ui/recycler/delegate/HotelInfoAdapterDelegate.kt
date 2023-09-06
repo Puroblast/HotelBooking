@@ -7,12 +7,12 @@ import com.puroblast.common_recycler.CommonAdapterDelegate
 import com.puroblast.common_recycler.CommonDelegateItem
 import com.puroblast.feature_hotel_booking.R as featureHotelBookingR
 import com.puroblast.feature_hotel_booking.ui.recycler.HotelBookViewHolder
-import com.puroblast.feature_hotel_booking.ui.recycler.model.TourPaymentInfoItem
+import com.puroblast.feature_hotel_booking.ui.recycler.model.HotelInfoItem
 
-class TourPaymentInfoItemDelegate : CommonAdapterDelegate {
+class HotelInfoAdapterDelegate : CommonAdapterDelegate {
     override fun onCreateViewHolder(parent: ViewGroup): RecyclerView.ViewHolder {
         val view = LayoutInflater.from(parent.context).inflate(
-            featureHotelBookingR.layout.tour_payment_info_item,
+            featureHotelBookingR.layout.hotel_info_item,
             parent,
             false
         )
@@ -28,6 +28,6 @@ class TourPaymentInfoItemDelegate : CommonAdapterDelegate {
     }
 
     override fun isOfViewType(item: CommonDelegateItem): Boolean {
-        return item is TourPaymentInfoItem
+        return item is HotelInfoItem
     }
 }

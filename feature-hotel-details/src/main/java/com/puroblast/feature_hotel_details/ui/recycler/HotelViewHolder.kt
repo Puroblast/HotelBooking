@@ -4,7 +4,9 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.widget.ImageView
+import androidx.core.net.toUri
 import androidx.core.os.bundleOf
+import androidx.navigation.NavDeepLinkRequest
 import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import by.kirich1409.viewbindingdelegate.viewBinding
@@ -132,7 +134,10 @@ class HotelViewHolder(
             }
 
             chooseRoomButton.setOnClickListener {
-                // TODO: NAVIGATE TO NEXT FRAG
+                val request = NavDeepLinkRequest.Builder
+                    .fromUri("android-app://com.puroblast.hotelbooking/hotelBookingFragment".toUri())
+                    .build()
+                view.findNavController().navigate(request)
             }
             roomName.text = room.name
         }

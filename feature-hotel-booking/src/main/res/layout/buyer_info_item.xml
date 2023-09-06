@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:layout_marginTop="8dp"
     app:cardBackgroundColor="@color/white"
     app:cardCornerRadius="12dp"
     app:strokeWidth="0dp">
@@ -19,8 +20,8 @@
             android:layout_height="wrap_content"
             android:layout_marginBottom="20dp"
             android:gravity="start"
-            android:textAppearance="@style/bold_text_style"
-            tools:text="Информация о покупателе" />
+            android:text="Информация о покупателе"
+            android:textAppearance="@style/bold_text_style" />
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/phoneNumberInput"
@@ -55,8 +56,8 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textAppearance="@style/secondary_text_style"
-            tools:text="Эти данные никому не передаются. После оплаты мы вышли чек на указанный вами номер и почту" />
+            android:text="Эти данные никому не передаются. После оплаты мы вышли чек на указанный вами номер и почту"
+            android:textAppearance="@style/secondary_text_style" />
 
     </LinearLayout>
 

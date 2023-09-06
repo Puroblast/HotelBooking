@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:layout_marginTop="8dp"
     app:cardBackgroundColor="@color/white"
     app:cardCornerRadius="12dp"
     app:strokeWidth="0dp">
@@ -14,7 +15,6 @@
         android:padding="16dp">
 
         <TextView
-            android:id="@+id/departureFrom"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textAppearance="@style/secondary_text_style"
@@ -24,7 +24,7 @@
             tools:text="Тур" />
 
         <TextView
-            android:id="@+id/departureFromText"
+            android:id="@+id/tourPaymentText"
             android:layout_width="213dp"
             android:layout_height="wrap_content"
             android:gravity="end"
@@ -39,18 +39,18 @@
             android:textAppearance="@style/secondary_text_style"
             android:textSize="16sp"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@id/countryAndCityText"
+            app:layout_constraintTop_toTopOf="@id/fuelChargeText"
             tools:text="Топливный сбор" />
 
         <TextView
-            android:id="@+id/countryAndCityText"
+            android:id="@+id/fuelChargeText"
             android:layout_width="213dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
             android:gravity="end"
             android:textAppearance="@style/primary_text_style"
-            app:layout_constraintStart_toStartOf="@id/departureFromText"
-            app:layout_constraintTop_toBottomOf="@id/departureFromText"
+            app:layout_constraintStart_toStartOf="@id/tourPaymentText"
+            app:layout_constraintTop_toBottomOf="@id/tourPaymentText"
             tools:text="9 300 ₽" />
 
         <TextView
@@ -59,18 +59,18 @@
             android:textAppearance="@style/secondary_text_style"
             android:textSize="16sp"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@id/datesText"
+            app:layout_constraintTop_toTopOf="@id/serviceChargeText"
             tools:text="Сервисный сбор" />
 
         <TextView
-            android:id="@+id/datesText"
+            android:id="@+id/serviceChargeText"
             android:layout_width="213dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
             android:gravity="end"
             android:textAppearance="@style/primary_text_style"
-            app:layout_constraintStart_toStartOf="@id/countryAndCityText"
-            app:layout_constraintTop_toBottomOf="@id/countryAndCityText"
+            app:layout_constraintStart_toStartOf="@id/fuelChargeText"
+            app:layout_constraintTop_toBottomOf="@id/fuelChargeText"
             tools:text="2 136 ₽" />
 
         <TextView
@@ -79,11 +79,11 @@
             android:textAppearance="@style/secondary_text_style"
             android:textSize="16sp"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@id/nightsAmountText"
+            app:layout_constraintTop_toTopOf="@id/overallPaymentText"
             tools:text="К оплате" />
 
         <TextView
-            android:id="@+id/nightsAmountText"
+            android:id="@+id/overallPaymentText"
             android:layout_width="213dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
@@ -91,8 +91,8 @@
             android:textAppearance="@style/primary_text_style"
             android:textColor="@color/blue"
             android:textStyle="bold"
-            app:layout_constraintStart_toStartOf="@id/datesText"
-            app:layout_constraintTop_toBottomOf="@id/datesText"
+            app:layout_constraintStart_toStartOf="@id/serviceChargeText"
+            app:layout_constraintTop_toBottomOf="@id/serviceChargeText"
             tools:text="198 036 ₽" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>

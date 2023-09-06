@@ -9,7 +9,7 @@ import com.puroblast.feature_hotel_booking.R as featureHotelBookingR
 import com.puroblast.feature_hotel_booking.ui.recycler.HotelBookViewHolder
 import com.puroblast.feature_hotel_booking.ui.recycler.model.BookHotelBottomItem
 
-class BottomItemDelegate : CommonAdapterDelegate {
+class BottomAdapterDelegate : CommonAdapterDelegate {
     override fun onCreateViewHolder(parent: ViewGroup): RecyclerView.ViewHolder {
         val view = LayoutInflater.from(parent.context).inflate(
             featureHotelBookingR.layout.book_bottom_button_item,
