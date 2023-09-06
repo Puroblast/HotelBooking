@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/bottomCard"
+    android:layout_width="match_parent"
+    android:layout_height="88dp"
+    android:layout_marginTop="10dp">
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/bookButton"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:layout_gravity="center"
+        android:layout_marginHorizontal="16dp"
+        android:backgroundTint="@color/blue"
+        android:textAppearance="@style/primary_text_style"
+        android:textColor="@color/white"
+        app:cornerRadius="12dp" />
+
+</androidx.cardview.widget.CardView>

@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="8dp"
+    app:cardBackgroundColor="@color/white"
+    app:cardCornerRadius="12dp"
+    app:strokeWidth="0dp">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="16dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="@style/secondary_text_style"
+            android:textSize="16sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="Тур" />
+
+        <TextView
+            android:id="@+id/tourPaymentText"
+            android:layout_width="213dp"
+            android:layout_height="wrap_content"
+            android:gravity="end"
+            android:textAppearance="@style/primary_text_style"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="186 600 ₽" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="@style/secondary_text_style"
+            android:textSize="16sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@id/fuelChargeText"
+            tools:text="Топливный сбор" />
+
+        <TextView
+            android:id="@+id/fuelChargeText"
+            android:layout_width="213dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:gravity="end"
+            android:textAppearance="@style/primary_text_style"
+            app:layout_constraintStart_toStartOf="@id/tourPaymentText"
+            app:layout_constraintTop_toBottomOf="@id/tourPaymentText"
+            tools:text="9 300 ₽" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="@style/secondary_text_style"
+            android:textSize="16sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@id/serviceChargeText"
+            tools:text="Сервисный сбор" />
+
+        <TextView
+            android:id="@+id/serviceChargeText"
+            android:layout_width="213dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:gravity="end"
+            android:textAppearance="@style/primary_text_style"
+            app:layout_constraintStart_toStartOf="@id/fuelChargeText"
+            app:layout_constraintTop_toBottomOf="@id/fuelChargeText"
+            tools:text="2 136 ₽" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="@style/secondary_text_style"
+            android:textSize="16sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@id/overallPaymentText"
+            tools:text="К оплате" />
+
+        <TextView
+            android:id="@+id/overallPaymentText"
+            android:layout_width="213dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:gravity="end"
+            android:textAppearance="@style/primary_text_style"
+            android:textColor="@color/blue"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="@id/serviceChargeText"
+            app:layout_constraintTop_toBottomOf="@id/serviceChargeText"
+            tools:text="198 036 ₽" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</com.google.android.material.card.MaterialCardView>

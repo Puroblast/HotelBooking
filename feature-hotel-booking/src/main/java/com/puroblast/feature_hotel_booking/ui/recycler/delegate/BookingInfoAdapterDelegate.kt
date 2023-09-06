@@ -1,24 +1,22 @@
-package com.puroblast.feature_hotel_details.ui.recycler.delegate.hotel
+package com.puroblast.feature_hotel_booking.ui.recycler.delegate
 
-import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.puroblast.common_recycler.CommonAdapterDelegate
 import com.puroblast.common_recycler.CommonDelegateItem
-import com.puroblast.feature_hotel_details.R as featureHotelDetailsR
-import com.puroblast.feature_hotel_details.ui.recycler.HotelViewHolder
-import com.puroblast.feature_hotel_details.ui.recycler.model.hotel.BottomItem
+import com.puroblast.feature_hotel_booking.R as featureHotelBookingR
+import com.puroblast.feature_hotel_booking.ui.recycler.HotelBookViewHolder
+import com.puroblast.feature_hotel_booking.ui.recycler.model.BookingInfoItem
 
-class BottomItemAdapterDelegate(val args: Bundle) : CommonAdapterDelegate {
-
+class BookingInfoAdapterDelegate : CommonAdapterDelegate {
     override fun onCreateViewHolder(parent: ViewGroup): RecyclerView.ViewHolder {
         val view = LayoutInflater.from(parent.context).inflate(
-            featureHotelDetailsR.layout.choose_room_bottom_button_item,
+            featureHotelBookingR.layout.booking_info_item,
             parent,
             false
         )
-        return HotelViewHolder(view)
+        return HotelBookViewHolder(view)
     }
 
     override fun onBindViewHolder(
@@ -26,10 +24,10 @@ class BottomItemAdapterDelegate(val args: Bundle) : CommonAdapterDelegate {
         item: CommonDelegateItem,
         position: Int
     ) {
-        (holder as HotelViewHolder).bind(item, args)
+        (holder as HotelBookViewHolder).bind(item)
     }
 
     override fun isOfViewType(item: CommonDelegateItem): Boolean {
-        return item is BottomItem
+        return item is BookingInfoItem
     }
 }

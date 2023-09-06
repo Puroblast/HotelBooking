@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/hotel_booking_nav_host"
+    app:startDestination="@id/hotelBookingFragment">
+
+    <fragment
+        android:id="@+id/hotelBookingFragment"
+        android:name="com.puroblast.feature_hotel_booking.ui.hotel_booking.HotelBookingFragment"
+        android:label="fragment_hotel_booking"
+        tools:layout="@layout/fragment_hotel_booking">
+        <deepLink app:uri="android-app://com.puroblast.hotelbooking/hotelBookingFragment" />
+
+    </fragment>
+</navigation>

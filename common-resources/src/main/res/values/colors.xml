@@ -9,4 +9,6 @@
     <color name="app_background_color">#F5F5F8</color>
     <color name="gray_dark">#26828796</color>
     <color name="blue_light">#0A0D72FF</color>
+    <color name="red">#FF0000</color>
+    <color name="gray_light">#F6F6F9</color>
 </resources>

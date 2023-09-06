@@ -4,7 +4,9 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.widget.ImageView
+import androidx.core.net.toUri
 import androidx.core.os.bundleOf
+import androidx.navigation.NavDeepLinkRequest
 import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import by.kirich1409.viewbindingdelegate.viewBinding
@@ -17,7 +19,7 @@ import com.puroblast.domain_hotel.model.Hotel
 import com.puroblast.domain_hotel.model.Room
 import com.puroblast.feature_hotel_details.R as featureHotelDetailsR
 import com.puroblast.feature_hotel_details.databinding.AboutHotelItemBinding
-import com.puroblast.feature_hotel_details.databinding.BottomButtonItemBinding
+import com.puroblast.feature_hotel_details.databinding.ChooseRoomBottomButtonItemBinding
 import com.puroblast.feature_hotel_details.databinding.HotelItemBinding
 import com.puroblast.feature_hotel_details.databinding.ImageItemBinding
 import com.puroblast.feature_hotel_details.databinding.RoomItemBinding
@@ -27,16 +29,29 @@ import com.puroblast.feature_hotel_details.ui.recycler.model.hotel.BottomItem
 import com.puroblast.feature_hotel_details.ui.recycler.model.hotel.HotelItem
 import com.puroblast.feature_hotel_details.ui.recycler.model.hotel.ImageItem
 import com.puroblast.feature_hotel_details.ui.recycler.model.rooms.RoomItem
+import com.puroblast.common_resources.R as commonResourcesR
 import java.text.DecimalFormat
 import java.text.DecimalFormatSymbols
 
-class HotelViewHolder(private val view: View) : RecyclerView.ViewHolder(view) {
+class HotelViewHolder(
+    private val view: View
+) : RecyclerView.ViewHolder(view) {
 
     private val imageItemBinding by viewBinding(ImageItemBinding::bind)
     private val hotelItemBinding by viewBinding(HotelItemBinding::bind)
     private val aboutHotelItemBinding by viewBinding(AboutHotelItemBinding::bind)
     private val roomItemBinding by viewBinding(RoomItemBinding::bind)
-    private val bottomItemBinding by viewBinding(BottomButtonItemBinding::bind)
+    private val bottomItemBinding by viewBinding(ChooseRoomBottomButtonItemBinding::bind)
+
+    fun bind(item: CommonDelegateItem, args: Bundle = bundleOf()) {
+        when (item) {
+            is ImageItem -> bindImageItem(item)
+            is HotelItem -> bindHotelItem(item)
+            is BottomItem -> bindBottomItem(args)
+            is AboutHotelItem -> bindAboutHotelItem(item)
+            is RoomItem -> bindRoomItem(item)
+        }
+    }
 
     private fun bindImageItem(item: ImageItem) {
         imageItemBinding.hotelImage.scaleType = ImageView.ScaleType.CENTER_CROP
@@ -54,7 +69,7 @@ class HotelViewHolder(private val view: View) : RecyclerView.ViewHolder(view) {
             decimalFormatSymbols.groupingSeparator = ' '
             val price = DecimalFormat("#,##0", decimalFormatSymbols).format(hotel.minimalPrice)
             hotelPrice.text = view.context.getString(
-                featureHotelDetailsR.string.rouble_symbol, price.toString()
+                commonResourcesR.string.rouble_symbol, price.toString()
             )
             hotelRatingChip.text = "${hotel.rating} ${hotel.ratingName}"
 
@@ -94,7 +109,7 @@ class HotelViewHolder(private val view: View) : RecyclerView.ViewHolder(view) {
             decimalFormatSymbols.groupingSeparator = ' '
             val price = DecimalFormat("#,##0", decimalFormatSymbols).format(room.price)
             roomPriceText.text = view.context.getString(
-                featureHotelDetailsR.string.room_rouble_symbol, price.toString()
+                commonResourcesR.string.room_rouble_symbol, price.toString()
             )
             roomPriceForIt.text = room.pricePer
 
@@ -119,7 +134,10 @@ class HotelViewHolder(private val view: View) : RecyclerView.ViewHolder(view) {
             }
 
             chooseRoomButton.setOnClickListener {
-                // TODO: NAVIGATE TO NEXT FRAG
+                val request = NavDeepLinkRequest.Builder
+                    .fromUri("android-app://com.puroblast.hotelbooking/hotelBookingFragment".toUri())
+                    .build()
+                view.findNavController().navigate(request)
             }
             roomName.text = room.name
         }
@@ -133,13 +151,4 @@ class HotelViewHolder(private val view: View) : RecyclerView.ViewHolder(view) {
         }
     }
 
-    fun bind(item: CommonDelegateItem, args: Bundle = bundleOf()) {
-        when (item) {
-            is ImageItem -> bindImageItem(item)
-            is HotelItem -> bindHotelItem(item)
-            is BottomItem -> bindBottomItem(args)
-            is AboutHotelItem -> bindAboutHotelItem(item)
-            is RoomItem -> bindRoomItem(item)
-        }
-    }
 }
