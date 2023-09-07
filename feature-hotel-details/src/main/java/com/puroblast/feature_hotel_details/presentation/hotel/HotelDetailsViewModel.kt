@@ -19,7 +19,7 @@ class HotelDetailsViewModel(
         loadHotelDetails()
     }
 
-    private val _state = MutableStateFlow(HotelDetailsState(Hotel()))
+    private val _state = MutableStateFlow(HotelDetailsState())
     val state = _state.asStateFlow()
 
     private fun loadHotelDetails() {

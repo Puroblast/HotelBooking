@@ -17,13 +17,11 @@ import com.puroblast.common_recycler.CommonAdapter
 import com.puroblast.feature_hotel_details.databinding.FragmentDetailsHotelBinding
 import com.puroblast.feature_hotel_details.di.HotelDetailsComponentViewModel
 import com.puroblast.feature_hotel_details.presentation.hotel.HotelDetailsViewModel
+import com.puroblast.feature_hotel_details.presentation.hotel.HotelUiStateMapper
 import com.puroblast.feature_hotel_details.R as featureHotelDetailsR
 import com.puroblast.feature_hotel_details.ui.recycler.delegate.hotel.AboutHotelAdapterDelegate
 import com.puroblast.feature_hotel_details.ui.recycler.delegate.hotel.BottomItemAdapterDelegate
 import com.puroblast.feature_hotel_details.ui.recycler.delegate.hotel.HotelAdapterDelegate
-import com.puroblast.feature_hotel_details.ui.recycler.model.hotel.AboutHotelItem
-import com.puroblast.feature_hotel_details.ui.recycler.model.hotel.BottomItem
-import com.puroblast.feature_hotel_details.ui.recycler.model.hotel.HotelItem
 import dagger.Lazy
 import kotlinx.coroutines.launch
 import javax.inject.Inject
@@ -32,6 +30,7 @@ class HotelDetailsFragment : Fragment(featureHotelDetailsR.layout.fragment_detai
 
     private val binding by viewBinding(FragmentDetailsHotelBinding::bind)
     private val args: Bundle = bundleOf()
+    private val hotelUiStateMapper = HotelUiStateMapper()
 
     @Inject
     internal lateinit var hotelDetailsViewModelFactory: Lazy<HotelDetailsViewModel.Factory>
@@ -69,15 +68,9 @@ class HotelDetailsFragment : Fragment(featureHotelDetailsR.layout.fragment_detai
         viewLifecycleOwner.lifecycleScope.launch {
             viewLifecycleOwner.repeatOnLifecycle(Lifecycle.State.RESUMED) {
                 hotelDetailsViewModel.state.collect { state ->
-                    val hotelItem = HotelItem(value = state.hotel)
-                    args.putString("hotelName", state.hotel.name)
-                    val aboutHotelItem = AboutHotelItem(value = state.hotel.aboutTheHotel)
-                    val bottomItem = BottomItem()
-                    adapter.submitList(
-                        listOf(
-                            hotelItem, aboutHotelItem, bottomItem
-                        )
-                    )
+                    val uiState = hotelUiStateMapper.map(state)
+                    args.putString("hotelName", state.hotel?.name)
+                    adapter.submitList(uiState.items)
                 }
             }
         }
