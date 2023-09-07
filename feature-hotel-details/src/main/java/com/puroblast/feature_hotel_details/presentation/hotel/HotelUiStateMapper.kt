@@ -4,17 +4,16 @@ import com.puroblast.feature_hotel_details.ui.recycler.model.hotel.AboutHotelIte
 import com.puroblast.feature_hotel_details.ui.recycler.model.hotel.BottomItem
 import com.puroblast.feature_hotel_details.ui.recycler.model.hotel.HotelItem
 
-class HotelUiStateMapper() {
+class HotelUiStateMapper {
 
-    fun map(state: HotelDetailsState) : HotelUiState {
-
+    fun map(state: HotelDetailsState): HotelUiState {
         if (state.hotel == null) {
             return HotelUiState(emptyList())
         }
 
         val hotelItem = HotelItem(value = state.hotel)
         val aboutHotelItem = AboutHotelItem(value = state.hotel.aboutTheHotel)
-        val bottomItem = BottomItem()
+        val bottomItem = BottomItem(value = state.hotel)
 
         val items = listOf(
             hotelItem,

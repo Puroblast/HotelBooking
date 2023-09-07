@@ -4,7 +4,6 @@ import android.transition.TransitionManager
 import android.view.View
 import androidx.recyclerview.widget.RecyclerView
 import android.transition.AutoTransition
-import android.util.Log
 import androidx.core.view.isVisible
 import by.kirich1409.viewbindingdelegate.viewBinding
 import com.puroblast.common_recycler.CommonDelegateItem
@@ -15,13 +14,15 @@ import com.puroblast.feature_hotel_booking.databinding.BuyerInfoItemBinding
 import com.puroblast.feature_hotel_booking.databinding.HotelInfoItemBinding
 import com.puroblast.feature_hotel_booking.databinding.TourPaymentInfoItemBinding
 import com.puroblast.feature_hotel_booking.databinding.TouristInfoItemBinding
-import com.puroblast.feature_hotel_booking.presentation.HotelBookingState
 import com.puroblast.feature_hotel_booking.ui.recycler.model.BookHotelBottomItem
 import com.puroblast.feature_hotel_booking.ui.recycler.model.BookingInfoItem
 import com.puroblast.feature_hotel_booking.ui.recycler.model.BuyerInfoItem
 import com.puroblast.feature_hotel_booking.ui.recycler.model.HotelInfoItem
 import com.puroblast.feature_hotel_booking.ui.recycler.model.TourPaymentInfoItem
 import com.puroblast.feature_hotel_booking.ui.recycler.model.TouristInfoItem
+import ru.tinkoff.decoro.MaskImpl
+import ru.tinkoff.decoro.slots.PredefinedSlots
+import ru.tinkoff.decoro.watchers.MaskFormatWatcher
 import com.puroblast.common_resources.R as commonResourcesR
 
 class HotelBookViewHolder(
@@ -86,6 +87,9 @@ class HotelBookViewHolder(
     }
 
     private fun bindBuyerInfoItem() {
+        val mask = MaskImpl(PredefinedSlots.RUS_PHONE_NUMBER, true)
+        val watcher = MaskFormatWatcher(mask)
+        watcher.installOn(buyerInfoBinding.phoneNumberText)
     }
 
     private fun bindBookingInfoItem(item: CommonDelegateItem) {

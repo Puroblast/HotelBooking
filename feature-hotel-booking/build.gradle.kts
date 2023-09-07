@@ -73,6 +73,9 @@ dependencies {
     implementation(libs.androidx.navigation.ui.ktx)
     //Navigation endregion
 
+    //Decoro region
+    implementation(libs.decoro)
+
 
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.test.ext.junit)

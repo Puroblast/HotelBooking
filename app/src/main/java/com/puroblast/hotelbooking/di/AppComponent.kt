@@ -9,7 +9,7 @@ import javax.inject.Singleton
 
 @Singleton
 @Component(modules = [AppModule::class])
-interface AppComponent : HotelDetailsDependencies , HotelBookingDependencies{
+interface AppComponent : HotelDetailsDependencies, HotelBookingDependencies {
 
     @Component.Builder
     interface Builder {

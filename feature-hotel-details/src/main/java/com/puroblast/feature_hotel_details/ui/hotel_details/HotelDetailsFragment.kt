@@ -3,7 +3,6 @@ package com.puroblast.feature_hotel_details.ui.hotel_details
 import android.content.Context
 import android.os.Bundle
 import android.view.View
-import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Lifecycle
@@ -29,7 +28,6 @@ import javax.inject.Inject
 class HotelDetailsFragment : Fragment(featureHotelDetailsR.layout.fragment_details_hotel) {
 
     private val binding by viewBinding(FragmentDetailsHotelBinding::bind)
-    private val args: Bundle = bundleOf()
     private val hotelUiStateMapper = HotelUiStateMapper()
 
     @Inject
@@ -57,7 +55,7 @@ class HotelDetailsFragment : Fragment(featureHotelDetailsR.layout.fragment_detai
         val hotelAdapter = CommonAdapter().apply {
             addDelegate(HotelAdapterDelegate())
             addDelegate(AboutHotelAdapterDelegate())
-            addDelegate(BottomItemAdapterDelegate(args))
+            addDelegate(BottomItemAdapterDelegate())
         }
         binding.recycler.adapter = hotelAdapter
         binding.recycler.layoutManager = LinearLayoutManager(requireContext())
@@ -69,7 +67,6 @@ class HotelDetailsFragment : Fragment(featureHotelDetailsR.layout.fragment_detai
             viewLifecycleOwner.repeatOnLifecycle(Lifecycle.State.RESUMED) {
                 hotelDetailsViewModel.state.collect { state ->
                     val uiState = hotelUiStateMapper.map(state)
-                    args.putString("hotelName", state.hotel?.name)
                     adapter.submitList(uiState.items)
                 }
             }

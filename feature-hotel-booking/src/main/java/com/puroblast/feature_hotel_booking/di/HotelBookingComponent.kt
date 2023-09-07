@@ -15,5 +15,4 @@ internal interface HotelBookingComponent {
 
         fun build(): HotelBookingComponent
     }
-
 }

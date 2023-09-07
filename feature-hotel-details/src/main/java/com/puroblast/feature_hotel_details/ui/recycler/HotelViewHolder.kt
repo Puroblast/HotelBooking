@@ -1,7 +1,5 @@
 package com.puroblast.feature_hotel_details.ui.recycler
 
-import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.widget.ImageView
@@ -12,7 +10,6 @@ import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import by.kirich1409.viewbindingdelegate.viewBinding
 import coil.load
-import coil.request.ImageRequest
 import com.google.android.material.chip.Chip
 import com.puroblast.common_recycler.CommonAdapter
 import com.puroblast.common_recycler.CommonDelegateItem
@@ -45,11 +42,11 @@ class HotelViewHolder(
     private val roomItemBinding by viewBinding(RoomItemBinding::bind)
     private val bottomItemBinding by viewBinding(ChooseRoomBottomButtonItemBinding::bind)
 
-    fun bind(item: CommonDelegateItem, args: Bundle = bundleOf()) {
+    fun bind(item: CommonDelegateItem) {
         when (item) {
             is ImageItem -> bindImageItem(item)
             is HotelItem -> bindHotelItem(item)
-            is BottomItem -> bindBottomItem(args)
+            is BottomItem -> bindBottomItem(item)
             is AboutHotelItem -> bindAboutHotelItem(item)
             is RoomItem -> bindRoomItem(item)
         }
@@ -147,12 +144,13 @@ class HotelViewHolder(
         }
     }
 
-    private fun bindBottomItem(args: Bundle) {
+    private fun bindBottomItem(item: CommonDelegateItem) {
+        val hotel = item.content() as Hotel
+        val args = bundleOf("hotelName" to hotel.name)
         bottomItemBinding.chooseRoomButton.setOnClickListener {
             view.findNavController().navigate(
                 featureHotelDetailsR.id.action_hotelDetailsFragment_to_roomsFragment, args
             )
         }
     }
-
 }

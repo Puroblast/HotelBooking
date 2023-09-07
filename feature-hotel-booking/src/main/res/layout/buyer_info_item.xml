@@ -24,22 +24,24 @@
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/phoneNumberInput"
-            style="@style/textInputLayout_custom"
+            android:theme="@style/textInputLayout_custom_theme"
+            style="@style/textInputLayout_custom_style"
             android:layout_width="match_parent"
-            android:layout_height="52dp"
-            android:layout_marginBottom="8dp">
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            app:placeholderText="asdasdasdasd"
+            app:boxBackgroundColor="@color/gray_light">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/phoneNumberText"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:background="@color/gray_light" />
+                android:layout_height="match_parent" />
 
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/emailInput"
-            style="@style/textInputLayout_custom"
+            android:theme="@style/textInputLayout_custom_theme"
             android:layout_width="match_parent"
             android:layout_height="52dp"
             android:layout_marginBottom="8dp">
@@ -48,7 +50,7 @@
                 android:id="@+id/emailText"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:background="@color/gray_light" />
+                android:background="@color/gray_light"/>
 
         </com.google.android.material.textfield.TextInputLayout>
 

@@ -53,7 +53,7 @@
 
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/nameInput"
-                style="@style/textInputLayout_custom"
+                android:theme="@style/textInputLayout_custom_theme"
                 android:layout_width="match_parent"
                 android:layout_height="52dp"
                 android:layout_marginBottom="8dp">
@@ -68,7 +68,7 @@
 
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/surnameInput"
-                style="@style/textInputLayout_custom"
+                android:theme="@style/textInputLayout_custom_theme"
                 android:layout_width="match_parent"
                 android:layout_height="52dp"
                 android:layout_marginBottom="8dp">
@@ -83,7 +83,7 @@
 
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/birthdayInput"
-                style="@style/textInputLayout_custom"
+                android:theme="@style/textInputLayout_custom_theme"
                 android:layout_width="match_parent"
                 android:layout_height="52dp"
                 android:layout_marginBottom="8dp">
@@ -98,7 +98,7 @@
 
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/citizenshipInput"
-                style="@style/textInputLayout_custom"
+                android:theme="@style/textInputLayout_custom_theme"
                 android:layout_width="match_parent"
                 android:layout_height="52dp"
                 android:layout_marginBottom="8dp">
@@ -113,7 +113,7 @@
 
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/passportNumberInput"
-                style="@style/textInputLayout_custom"
+                android:theme="@style/textInputLayout_custom_theme"
                 android:layout_width="match_parent"
                 android:layout_height="52dp"
                 android:layout_marginBottom="8dp">
@@ -128,7 +128,7 @@
 
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/passportExpiresInput"
-                style="@style/textInputLayout_custom"
+                android:theme="@style/textInputLayout_custom_theme"
                 android:layout_width="match_parent"
                 android:layout_height="52dp"
                 android:layout_marginBottom="8dp">

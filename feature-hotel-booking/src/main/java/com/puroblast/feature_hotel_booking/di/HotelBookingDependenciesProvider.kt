@@ -9,7 +9,6 @@ interface HotelBookingDependenciesProvider {
 
     @get: RestrictTo(RestrictTo.Scope.LIBRARY)
     val dependencies: HotelBookingDependencies
-
 }
 
 object HotelBookingDependenciesStore : HotelBookingDependenciesProvider {

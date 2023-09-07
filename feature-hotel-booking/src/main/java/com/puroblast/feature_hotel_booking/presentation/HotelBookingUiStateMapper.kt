@@ -16,13 +16,11 @@ import java.text.DecimalFormatSymbols
 class HotelBookingUiStateMapper {
 
     fun map(context: Context, state: HotelBookingState): HotelBookingUiState {
-
         if (state.bookingDetails == null) {
             return HotelBookingUiState(emptyList())
         }
 
         with(state.bookingDetails) {
-
             val decimalFormatSymbols = DecimalFormatSymbols()
             decimalFormatSymbols.groupingSeparator = ' '
             val overallPay = fuelCharge + serviceCharge + tourPrice
@@ -48,10 +46,7 @@ class HotelBookingUiStateMapper {
             }
 
             return HotelBookingUiState(items)
-
         }
-
-
     }
 
     private fun touristItems(tourists: List<Tourist>): List<CommonDelegateItem> {

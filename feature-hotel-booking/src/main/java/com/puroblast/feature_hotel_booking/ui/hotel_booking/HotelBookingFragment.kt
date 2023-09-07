@@ -70,17 +70,13 @@ class HotelBookingFragment : Fragment(featureHotelBookingR.layout.fragment_hotel
     }
 
     private fun render(adapter: CommonAdapter) {
-
         viewLifecycleOwner.lifecycleScope.launch {
             viewLifecycleOwner.repeatOnLifecycle(Lifecycle.State.RESUMED) {
-                hotelBookingViewModel.state.collect{state->
+                hotelBookingViewModel.state.collect { state ->
                     val uiState = uiStateMapper.map(requireContext(), state)
                     adapter.submitList(uiState.items)
                 }
-
             }
         }
-
     }
-
 }
