@@ -12,6 +12,8 @@
     <string name="fuel_charge">Топливный сбор</string>
     <string name="service_charge">Сервисный сбор</string>
     <string name="payment">К оплате</string>
-    <string name="privacy_policy">Эти данные никому не передаются. После оплаты мы вышли чек на указанный вами номер и почту</string>
+    <string name="privacy_policy">Эти данные никому не передаются. После оплаты мы вышлем чек на указанный вами номер и почту</string>
     <string name="buyer_information_text">Информация о покупателе</string>
+    <string name="input_phone_number">Введите номер телефона</string>
+    <string name="input_email">Введите email</string>
 </resources>

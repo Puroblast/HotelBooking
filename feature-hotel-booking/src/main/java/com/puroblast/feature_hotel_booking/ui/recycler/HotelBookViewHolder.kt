@@ -4,7 +4,11 @@ import android.transition.TransitionManager
 import android.view.View
 import androidx.recyclerview.widget.RecyclerView
 import android.transition.AutoTransition
+import android.util.Log
 import androidx.core.view.isVisible
+import androidx.core.widget.addTextChangedListener
+import androidx.core.widget.doAfterTextChanged
+import androidx.core.widget.doBeforeTextChanged
 import by.kirich1409.viewbindingdelegate.viewBinding
 import com.puroblast.common_recycler.CommonDelegateItem
 import com.puroblast.domain_hotel.model.BookingDetails
@@ -20,9 +24,13 @@ import com.puroblast.feature_hotel_booking.ui.recycler.model.BuyerInfoItem
 import com.puroblast.feature_hotel_booking.ui.recycler.model.HotelInfoItem
 import com.puroblast.feature_hotel_booking.ui.recycler.model.TourPaymentInfoItem
 import com.puroblast.feature_hotel_booking.ui.recycler.model.TouristInfoItem
+import ru.tinkoff.decoro.FormattedTextChangeListener
 import ru.tinkoff.decoro.MaskImpl
+import ru.tinkoff.decoro.parser.UnderscoreDigitSlotsParser
 import ru.tinkoff.decoro.slots.PredefinedSlots
+import ru.tinkoff.decoro.watchers.FormatWatcher
 import ru.tinkoff.decoro.watchers.MaskFormatWatcher
+import kotlin.math.log
 import com.puroblast.common_resources.R as commonResourcesR
 
 class HotelBookViewHolder(
@@ -87,9 +95,16 @@ class HotelBookViewHolder(
     }
 
     private fun bindBuyerInfoItem() {
-        val mask = MaskImpl(PredefinedSlots.RUS_PHONE_NUMBER, true)
-        val watcher = MaskFormatWatcher(mask)
+        val phoneMask = MaskImpl(PredefinedSlots.RUS_PHONE_NUMBER, true).apply {
+            isShowingEmptySlots = true
+            placeholder = '*'
+            isHideHardcodedHead = true
+        }
+        val watcher = MaskFormatWatcher(phoneMask)
         watcher.installOn(buyerInfoBinding.phoneNumberText)
+        buyerInfoBinding.phoneNumberInput.placeholderText = phoneMask.toString()
+        buyerInfoBinding.phoneNumberText.hint = ""
+
     }
 
     private fun bindBookingInfoItem(item: CommonDelegateItem) {
