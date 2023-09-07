@@ -1,6 +1,7 @@
 package com.puroblast.feature_hotel_details.ui.recycler
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.widget.ImageView
@@ -11,6 +12,7 @@ import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import by.kirich1409.viewbindingdelegate.viewBinding
 import coil.load
+import coil.request.ImageRequest
 import com.google.android.material.chip.Chip
 import com.puroblast.common_recycler.CommonAdapter
 import com.puroblast.common_recycler.CommonDelegateItem
@@ -55,7 +57,9 @@ class HotelViewHolder(
 
     private fun bindImageItem(item: ImageItem) {
         imageItemBinding.hotelImage.scaleType = ImageView.ScaleType.CENTER_CROP
-        imageItemBinding.hotelImage.load(item.content())
+        imageItemBinding.hotelImage.load(item.content()) {
+            error(commonResourcesR.drawable.face_error)
+        }
     }
 
     private fun bindHotelItem(item: HotelItem) {

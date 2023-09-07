@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_marginTop="8dp"
@@ -20,7 +19,7 @@
             android:layout_height="wrap_content"
             android:layout_marginBottom="20dp"
             android:gravity="start"
-            android:text="Информация о покупателе"
+            android:text="@string/buyer_information_text"
             android:textAppearance="@style/bold_text_style" />
 
         <com.google.android.material.textfield.TextInputLayout
@@ -56,7 +55,7 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Эти данные никому не передаются. После оплаты мы вышли чек на указанный вами номер и почту"
+            android:text="@string/privacy_policy"
             android:textAppearance="@style/secondary_text_style" />
 
     </LinearLayout>
