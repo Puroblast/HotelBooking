@@ -5,6 +5,7 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.viewModelScope
 import androidx.lifecycle.viewmodel.CreationExtras
 import com.puroblast.domain_hotel.HotelRepository
+import com.puroblast.domain_hotel.model.Tourist
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.launch
@@ -26,9 +27,15 @@ class HotelBookingViewModel(
             val bookingDetails = hotelRepository.getBookingDetails()
             _state.value = _state.value.copy(
                 bookingDetails = bookingDetails,
-                tourists = listOf()
+                tourists = emptyList()
             )
         }
+    }
+
+    fun addTourist() {
+        _state.value = _state.value.copy(
+            tourists = _state.value.tourists + Tourist(id = _state.value.tourists.size + 1)
+        )
     }
 
     class Factory @Inject constructor(

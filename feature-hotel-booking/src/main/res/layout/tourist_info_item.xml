@@ -23,10 +23,10 @@
             app:layout_constraintTop_toTopOf="parent">
 
             <TextView
+                android:id="@+id/touristNumber"
                 style="@style/bold_text_style"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Добавить туриста"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
@@ -36,7 +36,7 @@
                 android:layout_width="32dp"
                 android:layout_height="32dp"
                 android:background="@color/white"
-                android:src="@drawable/add_icon"
+                android:src="@drawable/collapsed_arrow"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 

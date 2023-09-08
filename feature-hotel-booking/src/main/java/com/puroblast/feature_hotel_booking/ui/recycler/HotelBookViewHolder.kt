@@ -4,33 +4,31 @@ import android.transition.TransitionManager
 import android.view.View
 import androidx.recyclerview.widget.RecyclerView
 import android.transition.AutoTransition
-import android.util.Log
+import android.view.LayoutInflater
 import androidx.core.view.isVisible
-import androidx.core.widget.addTextChangedListener
-import androidx.core.widget.doAfterTextChanged
-import androidx.core.widget.doBeforeTextChanged
 import by.kirich1409.viewbindingdelegate.viewBinding
 import com.puroblast.common_recycler.CommonDelegateItem
 import com.puroblast.domain_hotel.model.BookingDetails
+import com.puroblast.domain_hotel.model.Tourist
+import com.puroblast.feature_hotel_booking.databinding.AddTouristItemBinding
+import com.puroblast.feature_hotel_booking.R as featureHotelBookingR
 import com.puroblast.feature_hotel_booking.databinding.BookBottomButtonItemBinding
 import com.puroblast.feature_hotel_booking.databinding.BookingInfoItemBinding
 import com.puroblast.feature_hotel_booking.databinding.BuyerInfoItemBinding
 import com.puroblast.feature_hotel_booking.databinding.HotelInfoItemBinding
 import com.puroblast.feature_hotel_booking.databinding.TourPaymentInfoItemBinding
 import com.puroblast.feature_hotel_booking.databinding.TouristInfoItemBinding
+import com.puroblast.feature_hotel_booking.presentation.ClickListener
+import com.puroblast.feature_hotel_booking.ui.recycler.model.AddTouristItem
 import com.puroblast.feature_hotel_booking.ui.recycler.model.BookHotelBottomItem
 import com.puroblast.feature_hotel_booking.ui.recycler.model.BookingInfoItem
 import com.puroblast.feature_hotel_booking.ui.recycler.model.BuyerInfoItem
 import com.puroblast.feature_hotel_booking.ui.recycler.model.HotelInfoItem
 import com.puroblast.feature_hotel_booking.ui.recycler.model.TourPaymentInfoItem
 import com.puroblast.feature_hotel_booking.ui.recycler.model.TouristInfoItem
-import ru.tinkoff.decoro.FormattedTextChangeListener
 import ru.tinkoff.decoro.MaskImpl
-import ru.tinkoff.decoro.parser.UnderscoreDigitSlotsParser
 import ru.tinkoff.decoro.slots.PredefinedSlots
-import ru.tinkoff.decoro.watchers.FormatWatcher
 import ru.tinkoff.decoro.watchers.MaskFormatWatcher
-import kotlin.math.log
 import com.puroblast.common_resources.R as commonResourcesR
 
 class HotelBookViewHolder(
@@ -43,6 +41,7 @@ class HotelBookViewHolder(
     private val buyerInfoBinding by viewBinding(BuyerInfoItemBinding::bind)
     private val bookingInfoBinding by viewBinding(BookingInfoItemBinding::bind)
     private val bottomItemBinding by viewBinding(BookBottomButtonItemBinding::bind)
+    private val addTouristItemBinding by viewBinding(AddTouristItemBinding::bind)
 
     fun bind(item: CommonDelegateItem) {
         when (item) {
@@ -50,8 +49,14 @@ class HotelBookViewHolder(
             is BookingInfoItem -> bindBookingInfoItem(item)
             is BuyerInfoItem -> bindBuyerInfoItem()
             is HotelInfoItem -> bindHotelInfoItem(item)
-            is TouristInfoItem -> bindTouristInfoItem()
+            is TouristInfoItem -> bindTouristInfoItem(item)
             is TourPaymentInfoItem -> bindTourPaymentInfoItem(item)
+        }
+    }
+
+    fun bindAddTouristItem(onClick: ClickListener) {
+        addTouristItemBinding.addButton.setOnClickListener {
+            onClick.onClick()
         }
     }
 
@@ -69,17 +74,21 @@ class HotelBookViewHolder(
         }
     }
 
-    private fun bindTouristInfoItem() {
+    private fun bindTouristInfoItem(item: CommonDelegateItem) {
+        val touristPosition = TouristPositionMapper()
+        val tourist = item.content() as Tourist
         with(touristInfoBinding) {
+            touristNumber.text = touristPosition.map(tourist.id)
+
             addButton.setOnClickListener {
                 if (hiddenView.isVisible) {
                     TransitionManager.beginDelayedTransition(touristCardView, AutoTransition())
-                    hiddenView.isVisible = false
                     addButton.setImageResource(commonResourcesR.drawable.collapsed_arrow)
+                    hiddenView.isVisible = false
                 } else {
                     TransitionManager.beginDelayedTransition(touristCardView, AutoTransition())
-                    hiddenView.isVisible = true
                     addButton.setImageResource(commonResourcesR.drawable.expanded_arrow)
+                    hiddenView.isVisible = true
                 }
             }
         }
@@ -102,8 +111,18 @@ class HotelBookViewHolder(
         }
         val watcher = MaskFormatWatcher(phoneMask)
         watcher.installOn(buyerInfoBinding.phoneNumberText)
-        buyerInfoBinding.phoneNumberInput.placeholderText = phoneMask.toString()
-        buyerInfoBinding.phoneNumberText.hint = ""
+
+        buyerInfoBinding.phoneNumberText.setOnFocusChangeListener { view, isFocused ->
+            if (isFocused) {
+                buyerInfoBinding.phoneNumberInput.placeholderText = phoneMask.toString()
+                buyerInfoBinding.phoneNumberText.hint = ""
+            } else {
+                if (!watcher.mask.hasUserInput()) {
+                    buyerInfoBinding.phoneNumberText.setHint(featureHotelBookingR.string.input_phone_number)
+                }
+            }
+        }
+
 
     }
 

@@ -10,13 +10,16 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.get
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import by.kirich1409.viewbindingdelegate.viewBinding
 import com.puroblast.common_recycler.CommonAdapter
 import com.puroblast.feature_hotel_booking.databinding.FragmentHotelBookingBinding
 import com.puroblast.feature_hotel_booking.di.HotelBookingComponentViewModel
+import com.puroblast.feature_hotel_booking.presentation.ClickListener
 import com.puroblast.feature_hotel_booking.presentation.HotelBookingViewModel
 import com.puroblast.feature_hotel_booking.presentation.HotelBookingUiStateMapper
+import com.puroblast.feature_hotel_booking.ui.recycler.delegate.AddTouristItemDelegate
 import com.puroblast.feature_hotel_booking.ui.recycler.delegate.BookingInfoAdapterDelegate
 import com.puroblast.feature_hotel_booking.ui.recycler.delegate.BottomAdapterDelegate
 import com.puroblast.feature_hotel_booking.ui.recycler.delegate.BuyerInfoAdapterDelegate
@@ -28,7 +31,7 @@ import kotlinx.coroutines.launch
 import javax.inject.Inject
 import com.puroblast.feature_hotel_booking.R as featureHotelBookingR
 
-class HotelBookingFragment : Fragment(featureHotelBookingR.layout.fragment_hotel_booking) {
+class HotelBookingFragment : Fragment(featureHotelBookingR.layout.fragment_hotel_booking) , ClickListener {
 
     private val binding by viewBinding(FragmentHotelBookingBinding::bind)
 
@@ -53,6 +56,10 @@ class HotelBookingFragment : Fragment(featureHotelBookingR.layout.fragment_hotel
 
         val bookingAdapter = setupAdapter()
         render(bookingAdapter)
+
+        binding.toolBar.setNavigationOnClickListener {
+            findNavController().popBackStack()
+        }
     }
 
     private fun setupAdapter(): CommonAdapter {
@@ -63,6 +70,7 @@ class HotelBookingFragment : Fragment(featureHotelBookingR.layout.fragment_hotel
             addDelegate(BuyerInfoAdapterDelegate())
             addDelegate(HotelInfoAdapterDelegate())
             addDelegate(TourPaymentInfoAdapterDelegate())
+            addDelegate(AddTouristItemDelegate(this@HotelBookingFragment as ClickListener))
         }
         binding.recycler.adapter = bookingAdapter
         binding.recycler.layoutManager = LinearLayoutManager(requireContext())
@@ -78,5 +86,9 @@ class HotelBookingFragment : Fragment(featureHotelBookingR.layout.fragment_hotel
                 }
             }
         }
+    }
+
+    override fun onClick() {
+        hotelBookingViewModel.addTourist()
     }
 }

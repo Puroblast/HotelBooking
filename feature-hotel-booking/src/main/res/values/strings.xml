@@ -16,4 +16,5 @@
     <string name="buyer_information_text">Информация о покупателе</string>
     <string name="input_phone_number">Введите номер телефона</string>
     <string name="input_email">Введите email</string>
+    <string name="add_tourist">Добавить туриста</string>
 </resources>
