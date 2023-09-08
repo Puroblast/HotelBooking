@@ -14,7 +14,7 @@ import com.puroblast.feature_hotel_booking.ui.recycler.model.TouristInfoItem
 import java.text.DecimalFormat
 import java.text.DecimalFormatSymbols
 
-class HotelBookingUiStateMapper() {
+class HotelBookingUiStateMapper {
 
     fun map(context: Context, state: HotelBookingState): HotelBookingUiState {
         if (state.bookingDetails == null) {

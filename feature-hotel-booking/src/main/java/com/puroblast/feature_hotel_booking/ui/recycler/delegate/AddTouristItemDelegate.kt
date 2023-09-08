@@ -11,7 +11,7 @@ import com.puroblast.feature_hotel_booking.ui.recycler.HotelBookViewHolder
 import com.puroblast.feature_hotel_booking.ui.recycler.model.AddTouristItem
 
 class AddTouristItemDelegate(
-    private val onClick : ClickListener
+    private val onClick: ClickListener
 ) : CommonAdapterDelegate {
     override fun onCreateViewHolder(parent: ViewGroup): RecyclerView.ViewHolder {
         val view = LayoutInflater.from(parent.context).inflate(

@@ -19,11 +19,11 @@
             android:id="@+id/departureFrom"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:text="@string/departure_from"
             android:textAppearance="@style/secondary_text_style"
             android:textSize="16sp"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            android:text="@string/departure_from" />
+            app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
             android:id="@+id/departureFromText"
@@ -37,11 +37,11 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:text="@string/country_city"
             android:textAppearance="@style/secondary_text_style"
             android:textSize="16sp"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@id/countryAndCityText"
-            android:text="@string/country_city" />
+            app:layout_constraintTop_toTopOf="@id/countryAndCityText" />
 
         <TextView
             android:id="@+id/countryAndCityText"
@@ -56,11 +56,11 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:text="@string/dates"
             android:textAppearance="@style/secondary_text_style"
             android:textSize="16sp"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@id/datesText"
-            android:text="@string/dates" />
+            app:layout_constraintTop_toTopOf="@id/datesText" />
 
         <TextView
             android:id="@+id/datesText"
@@ -75,11 +75,11 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:text="@string/nights_count"
             android:textAppearance="@style/secondary_text_style"
             android:textSize="16sp"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@id/nightsAmountText"
-            android:text="@string/nights_count" />
+            app:layout_constraintTop_toTopOf="@id/nightsAmountText" />
 
         <TextView
             android:id="@+id/nightsAmountText"
@@ -94,11 +94,11 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:text="@string/hotel"
             android:textAppearance="@style/secondary_text_style"
             android:textSize="16sp"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@id/hotelNameText"
-            android:text="@string/hotel" />
+            app:layout_constraintTop_toTopOf="@id/hotelNameText" />
 
         <TextView
             android:id="@+id/hotelNameText"
@@ -113,11 +113,11 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:text="@string/room"
             android:textAppearance="@style/secondary_text_style"
             android:textSize="16sp"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@id/roomNameText"
-            android:text="@string/room" />
+            app:layout_constraintTop_toTopOf="@id/roomNameText" />
 
         <TextView
             android:id="@+id/roomNameText"
@@ -132,11 +132,11 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:text="@string/nutrition"
             android:textAppearance="@style/secondary_text_style"
             android:textSize="16sp"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@id/foodTypeText"
-            android:text="@string/nutrition" />
+            app:layout_constraintTop_toTopOf="@id/foodTypeText" />
 
         <TextView
             android:id="@+id/foodTypeText"

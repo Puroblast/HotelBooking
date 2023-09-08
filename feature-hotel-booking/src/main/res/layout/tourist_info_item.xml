@@ -53,10 +53,10 @@
 
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/nameInput"
-                android:theme="@style/textInputLayout_custom_theme"
                 android:layout_width="match_parent"
                 android:layout_height="52dp"
-                android:layout_marginBottom="8dp">
+                android:layout_marginBottom="8dp"
+                android:theme="@style/textInputLayout_custom_theme">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/nameText"
@@ -68,10 +68,10 @@
 
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/surnameInput"
-                android:theme="@style/textInputLayout_custom_theme"
                 android:layout_width="match_parent"
                 android:layout_height="52dp"
-                android:layout_marginBottom="8dp">
+                android:layout_marginBottom="8dp"
+                android:theme="@style/textInputLayout_custom_theme">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/surnameText"
@@ -83,10 +83,10 @@
 
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/birthdayInput"
-                android:theme="@style/textInputLayout_custom_theme"
                 android:layout_width="match_parent"
                 android:layout_height="52dp"
-                android:layout_marginBottom="8dp">
+                android:layout_marginBottom="8dp"
+                android:theme="@style/textInputLayout_custom_theme">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/birthdayText"
@@ -98,10 +98,10 @@
 
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/citizenshipInput"
-                android:theme="@style/textInputLayout_custom_theme"
                 android:layout_width="match_parent"
                 android:layout_height="52dp"
-                android:layout_marginBottom="8dp">
+                android:layout_marginBottom="8dp"
+                android:theme="@style/textInputLayout_custom_theme">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/citizenshipText"
@@ -113,10 +113,10 @@
 
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/passportNumberInput"
-                android:theme="@style/textInputLayout_custom_theme"
                 android:layout_width="match_parent"
                 android:layout_height="52dp"
-                android:layout_marginBottom="8dp">
+                android:layout_marginBottom="8dp"
+                android:theme="@style/textInputLayout_custom_theme">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/passportNumberText"
@@ -128,10 +128,10 @@
 
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/passportExpiresInput"
-                android:theme="@style/textInputLayout_custom_theme"
                 android:layout_width="match_parent"
                 android:layout_height="52dp"
-                android:layout_marginBottom="8dp">
+                android:layout_marginBottom="8dp"
+                android:theme="@style/textInputLayout_custom_theme">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/passportExpiresText"

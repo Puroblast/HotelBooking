@@ -31,7 +31,7 @@ import kotlinx.coroutines.launch
 import javax.inject.Inject
 import com.puroblast.feature_hotel_booking.R as featureHotelBookingR
 
-class HotelBookingFragment : Fragment(featureHotelBookingR.layout.fragment_hotel_booking) , ClickListener {
+class HotelBookingFragment : Fragment(featureHotelBookingR.layout.fragment_hotel_booking), ClickListener {
 
     private val binding by viewBinding(FragmentHotelBookingBinding::bind)
 

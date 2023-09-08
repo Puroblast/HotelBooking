@@ -4,7 +4,7 @@ import com.puroblast.common_recycler.CommonDelegateItem
 import com.puroblast.feature_hotel_booking.R as featureHotelBookingR
 
 class AddTouristItem(
-    private val value : Int = featureHotelBookingR.layout.add_tourist_item
+    private val value: Int = featureHotelBookingR.layout.add_tourist_item
 ) : CommonDelegateItem {
     override fun content(): Any = value
 
