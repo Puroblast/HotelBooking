@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/app_background_color"
+    app:layout_constraintTop_toTopOf="parent">
+
+
+    <com.google.android.material.appbar.MaterialToolbar
+        android:id="@+id/toolBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        app:navigationIcon="@drawable/navigation_icon"
+        app:title="@string/success_payment_order"
+        app:titleCentered="true"
+        app:titleTextAppearance="@style/bold_text_style"
+        app:layout_constraintTop_toTopOf="parent"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginBottom="5dp"
+        android:background="@color/white"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toTopOf="@id/bottomCard"
+        app:layout_constraintTop_toBottomOf="@id/toolBar">
+
+        <ImageView
+            android:id="@+id/image"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="122dp"
+            android:layout_marginBottom="32dp"
+            android:gravity="center"
+            android:src="@drawable/party_popper" />
+
+        <TextView
+            android:id="@+id/orderTookToWork"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="16dp"
+            android:layout_marginBottom="20dp"
+            android:gravity="center"
+            android:text="@string/order_took_to_work"
+            android:textAppearance="@style/primary_text_style"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/timeToAcceptOrder"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="23dp"
+            android:gravity="center"
+            android:text="@string/time_to_accept_order"
+            android:textAppearance="@style/secondary_text_style"
+            android:textSize="16sp" />
+
+    </LinearLayout>
+
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/bottomCard"
+        android:layout_width="match_parent"
+        android:layout_height="88dp"
+        app:layout_constraintBottom_toBottomOf="parent">
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/bookButton"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:layout_gravity="center"
+            android:layout_marginHorizontal="16dp"
+            android:backgroundTint="@color/blue"
+            android:text="@string/superText"
+            android:textAppearance="@style/primary_text_style"
+            android:textColor="@color/white"
+            app:cornerRadius="12dp" />
+
+    </androidx.cardview.widget.CardView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

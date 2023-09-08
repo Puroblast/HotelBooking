@@ -51,8 +51,13 @@ class HotelBookingUiStateMapper {
     }
 
     private fun touristItems(tourists: List<Tourist>): List<CommonDelegateItem> {
+        val addTouristItem = if (tourists.size == 4) {
+            emptyList()
+        } else {
+            listOf(AddTouristItem())
+        }
         return tourists.map {
             TouristInfoItem(it)
-        } + listOf(AddTouristItem())
+        } + addTouristItem
     }
 }

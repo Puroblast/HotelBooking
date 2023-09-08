@@ -27,7 +27,7 @@ class AddTouristItemDelegate(
         item: CommonDelegateItem,
         position: Int
     ) {
-        (holder as HotelBookViewHolder).bindAddTouristItem(onClick)
+        (holder as HotelBookViewHolder).bind(item, onClick)
     }
 
     override fun isOfViewType(item: CommonDelegateItem): Boolean {

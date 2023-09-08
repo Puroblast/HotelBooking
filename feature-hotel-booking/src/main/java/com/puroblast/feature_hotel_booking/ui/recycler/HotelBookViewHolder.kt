@@ -5,6 +5,8 @@ import android.view.View
 import androidx.recyclerview.widget.RecyclerView
 import android.transition.AutoTransition
 import androidx.core.view.isVisible
+import androidx.core.widget.doAfterTextChanged
+import androidx.navigation.findNavController
 import by.kirich1409.viewbindingdelegate.viewBinding
 import com.puroblast.common_recycler.CommonDelegateItem
 import com.puroblast.domain_hotel.model.BookingDetails
@@ -18,11 +20,18 @@ import com.puroblast.feature_hotel_booking.databinding.HotelInfoItemBinding
 import com.puroblast.feature_hotel_booking.databinding.TourPaymentInfoItemBinding
 import com.puroblast.feature_hotel_booking.databinding.TouristInfoItemBinding
 import com.puroblast.feature_hotel_booking.presentation.ClickListener
+import com.puroblast.feature_hotel_booking.ui.ValidationField
+import com.puroblast.feature_hotel_booking.ui.Validator
+import com.puroblast.feature_hotel_booking.ui.recycler.model.AddTouristItem
+import com.puroblast.feature_hotel_booking.ui.recycler.model.BookHotelBottomItem
 import com.puroblast.feature_hotel_booking.ui.recycler.model.BookingInfoItem
 import com.puroblast.feature_hotel_booking.ui.recycler.model.BuyerInfoItem
 import com.puroblast.feature_hotel_booking.ui.recycler.model.HotelInfoItem
 import com.puroblast.feature_hotel_booking.ui.recycler.model.TourPaymentInfoItem
 import com.puroblast.feature_hotel_booking.ui.recycler.model.TouristInfoItem
+import com.puroblast.feature_hotel_booking.ui.validateEmail
+import com.puroblast.feature_hotel_booking.ui.validateEmpty
+import com.puroblast.feature_hotel_booking.ui.validatePhoneNumber
 import ru.tinkoff.decoro.MaskImpl
 import ru.tinkoff.decoro.slots.PredefinedSlots
 import ru.tinkoff.decoro.watchers.MaskFormatWatcher
@@ -46,27 +55,44 @@ class HotelBookViewHolder(
         when (item) {
             is BookingInfoItem -> bindBookingInfoItem(item)
             is HotelInfoItem -> bindHotelInfoItem(item)
-            is BuyerInfoItem -> bindBuyerInfoItem()
-            is TouristInfoItem -> bindTouristInfoItem(item)
             is TourPaymentInfoItem -> bindTourPaymentInfoItem(item)
         }
     }
 
-    fun bindBottomItem(item: CommonDelegateItem , onClick: ClickListener) {
-        val buttonText = item.content() as String
-        bottomItemBinding.bookButton.text = buttonText
-        bottomItemBinding.bookButton.setOnClickListener {
-            onClick.onPayButtonClick()
+    fun bind(item: CommonDelegateItem, validator: Validator) {
+        when (item) {
+            is BuyerInfoItem -> bindBuyerInfoItem(validator)
+            is TouristInfoItem -> bindTouristInfoItem(item, validator)
         }
     }
 
-    fun bindAddTouristItem(onClick: ClickListener) {
+    fun bind(item: CommonDelegateItem, onClick: ClickListener) {
+        when (item) {
+            is BookHotelBottomItem -> bindBottomItem(item, onClick)
+            is AddTouristItem -> bindAddTouristItem(onClick)
+        }
+    }
+
+    private fun bindBottomItem(item: CommonDelegateItem, onClick: ClickListener) {
+        val buttonText = item.content() as String
+        bottomItemBinding.bookButton.text = buttonText
+        bottomItemBinding.bookButton.setOnClickListener {
+            val isAllFieldsFilled = onClick.onPayButtonClick()
+            if (isAllFieldsFilled) {
+                view.findNavController().navigate(
+                    featureHotelBookingR.id.action_hotelBookingFragment_to_paymentFragment
+                )
+            }
+        }
+    }
+
+    private fun bindAddTouristItem(onClick: ClickListener) {
         addTouristItemBinding.addButton.setOnClickListener {
             onClick.onAddTouristButtonClick()
         }
     }
 
-    private fun bindBuyerInfoItem() {
+    private fun bindBuyerInfoItem(validator: Validator) {
         val phoneMask = MaskImpl(PredefinedSlots.RUS_PHONE_NUMBER, true).apply {
             isShowingEmptySlots = true
             placeholder = '*'
@@ -85,6 +111,33 @@ class HotelBookViewHolder(
                 }
             }
         }
+
+        addFieldToValidator(validator) {
+            buyerInfoBinding.phoneNumberText.validatePhoneNumber()
+            buyerInfoBinding.emailText.validateEmail()
+        }
+
+        buyerInfoBinding.phoneNumberText.apply {
+            doAfterTextChanged {
+                this.setTextColor(view.context.getColor(commonResourcesR.color.black))
+            }
+            setOnFocusChangeListener { view, focused ->
+                if (!focused) {
+                    this.validatePhoneNumber()
+                }
+            }
+        }
+
+        buyerInfoBinding.emailText.apply {
+            doAfterTextChanged {
+                this.setTextColor(view.context.getColor(commonResourcesR.color.black))
+            }
+            setOnFocusChangeListener { view, focused ->
+                if (!focused) {
+                    this.validateEmail()
+                }
+            }
+        }
     }
 
     private fun bindTourPaymentInfoItem(item: CommonDelegateItem) {
@@ -94,27 +147,28 @@ class HotelBookViewHolder(
             decimalFormatSymbols.groupingSeparator = ' '
             val format = DecimalFormat("#,##0", decimalFormatSymbols)
 
-            val overallPrice = bookingDetails.tourPrice + bookingDetails.fuelCharge + bookingDetails.serviceCharge
+            val overallPrice =
+                bookingDetails.tourPrice + bookingDetails.fuelCharge + bookingDetails.serviceCharge
             tourPaymentText.text = view.context.getString(
-                commonResourcesR.string.room_rouble_symbol ,
+                commonResourcesR.string.room_rouble_symbol,
                 format.format(bookingDetails.tourPrice)
             )
             fuelChargeText.text = view.context.getString(
-                commonResourcesR.string.room_rouble_symbol ,
+                commonResourcesR.string.room_rouble_symbol,
                 format.format(bookingDetails.fuelCharge)
             )
             serviceChargeText.text = view.context.getString(
-                commonResourcesR.string.room_rouble_symbol ,
+                commonResourcesR.string.room_rouble_symbol,
                 format.format(bookingDetails.serviceCharge)
             )
             overallPaymentText.text = view.context.getString(
-                commonResourcesR.string.room_rouble_symbol ,
+                commonResourcesR.string.room_rouble_symbol,
                 format.format(overallPrice)
             )
         }
     }
 
-    private fun bindTouristInfoItem(item: CommonDelegateItem) {
+    private fun bindTouristInfoItem(item: CommonDelegateItem, validator: Validator) {
         val touristPosition = TouristPositionMapper()
         val tourist = item.content() as Tourist
         with(touristInfoBinding) {
@@ -130,6 +184,15 @@ class HotelBookViewHolder(
                     addButton.setImageResource(commonResourcesR.drawable.expanded_arrow)
                     hiddenView.isVisible = true
                 }
+            }
+
+            addFieldToValidator(validator) {
+                nameText.validateEmpty()
+                birthdayText.validateEmpty()
+                citizenshipText.validateEmpty()
+                surnameText.validateEmpty()
+                passportNumberText.validateEmpty()
+                passportExpiresText.validateEmpty()
             }
         }
     }
@@ -156,4 +219,11 @@ class HotelBookViewHolder(
         }
     }
 
+    private fun addFieldToValidator(validator: Validator, validateAction: () -> Boolean) {
+        validator.addField(object : ValidationField {
+            override fun validate(): Boolean {
+                return validateAction()
+            }
+        })
+    }
 }

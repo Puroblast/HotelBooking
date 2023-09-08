@@ -38,10 +38,6 @@ class HotelBookingViewModel(
         )
     }
 
-    fun checkFields(){
-        _state.value = _state.value.copy(isPayButtonPressed = true)
-    }
-
     class Factory @Inject constructor(
         private val hotelRepository: HotelRepository
     ) : ViewModelProvider.Factory {

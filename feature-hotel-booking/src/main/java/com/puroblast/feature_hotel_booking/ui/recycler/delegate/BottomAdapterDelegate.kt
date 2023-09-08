@@ -27,11 +27,10 @@ class BottomAdapterDelegate(
         item: CommonDelegateItem,
         position: Int
     ) {
-        (holder as HotelBookViewHolder).bindBottomItem(item , onClick)
+        (holder as HotelBookViewHolder).bind(item, onClick)
     }
 
     override fun isOfViewType(item: CommonDelegateItem): Boolean {
         return item is BookHotelBottomItem
     }
-
 }

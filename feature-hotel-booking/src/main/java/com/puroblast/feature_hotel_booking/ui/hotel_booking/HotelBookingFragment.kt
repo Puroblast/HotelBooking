@@ -19,6 +19,7 @@ import com.puroblast.feature_hotel_booking.di.HotelBookingComponentViewModel
 import com.puroblast.feature_hotel_booking.presentation.ClickListener
 import com.puroblast.feature_hotel_booking.presentation.HotelBookingViewModel
 import com.puroblast.feature_hotel_booking.presentation.HotelBookingUiStateMapper
+import com.puroblast.feature_hotel_booking.ui.Validator
 import com.puroblast.feature_hotel_booking.ui.recycler.delegate.AddTouristItemDelegate
 import com.puroblast.feature_hotel_booking.ui.recycler.delegate.BookingInfoAdapterDelegate
 import com.puroblast.feature_hotel_booking.ui.recycler.delegate.BottomAdapterDelegate
@@ -34,7 +35,7 @@ import com.puroblast.feature_hotel_booking.R as featureHotelBookingR
 class HotelBookingFragment : Fragment(featureHotelBookingR.layout.fragment_hotel_booking), ClickListener {
 
     private val binding by viewBinding(FragmentHotelBookingBinding::bind)
-
+    private val validator = Validator()
     private val uiStateMapper = HotelBookingUiStateMapper()
 
     @Inject
@@ -65,9 +66,9 @@ class HotelBookingFragment : Fragment(featureHotelBookingR.layout.fragment_hotel
     private fun setupAdapter(): CommonAdapter {
         val bookingAdapter = CommonAdapter().apply {
             addDelegate(BookingInfoAdapterDelegate())
-            addDelegate(TouristInfoAdapterDelegate())
+            addDelegate(TouristInfoAdapterDelegate(validator))
             addDelegate(BottomAdapterDelegate(this@HotelBookingFragment as ClickListener))
-            addDelegate(BuyerInfoAdapterDelegate())
+            addDelegate(BuyerInfoAdapterDelegate(validator))
             addDelegate(HotelInfoAdapterDelegate())
             addDelegate(TourPaymentInfoAdapterDelegate())
             addDelegate(AddTouristItemDelegate(this@HotelBookingFragment as ClickListener))
@@ -81,9 +82,6 @@ class HotelBookingFragment : Fragment(featureHotelBookingR.layout.fragment_hotel
         viewLifecycleOwner.lifecycleScope.launch {
             viewLifecycleOwner.repeatOnLifecycle(Lifecycle.State.RESUMED) {
                 hotelBookingViewModel.state.collect { state ->
-                    if (state.isPayButtonPressed) {
-                        adapter.notifyItemRangeChanged(2, state.tourists.size)
-                    }
                     val uiState = uiStateMapper.map(requireContext(), state)
                     adapter.submitList(uiState.items)
                 }
@@ -95,7 +93,7 @@ class HotelBookingFragment : Fragment(featureHotelBookingR.layout.fragment_hotel
         hotelBookingViewModel.addTourist()
     }
 
-    override fun onPayButtonClick() {
-        hotelBookingViewModel.checkFields()
+    override fun onPayButtonClick(): Boolean {
+        return validator.validateFields()
     }
 }

@@ -55,7 +55,8 @@
                 android:id="@+id/emailText"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:hint="@string/input_email" />
+                android:hint="@string/input_email"
+                android:inputType="textVisiblePassword"/>
 
         </com.google.android.material.textfield.TextInputLayout>
 

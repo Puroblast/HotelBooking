@@ -4,5 +4,5 @@ interface ClickListener {
 
     fun onAddTouristButtonClick()
 
-    fun onPayButtonClick()
+    fun onPayButtonClick(): Boolean
 }

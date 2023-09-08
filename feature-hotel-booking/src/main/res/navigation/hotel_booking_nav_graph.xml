@@ -11,6 +11,13 @@
         android:label="fragment_hotel_booking"
         tools:layout="@layout/fragment_hotel_booking">
         <deepLink app:uri="android-app://com.puroblast.hotelbooking/hotelBookingFragment" />
+        <action
+            android:id="@+id/action_hotelBookingFragment_to_paymentFragment"
+            app:destination="@id/paymentFragment" />
 
     </fragment>
+    <fragment
+        android:id="@+id/paymentFragment"
+        android:name="com.puroblast.feature_hotel_booking.ui.hotel_booking.PaymentFragment"
+        android:label="PaymentFragment"/>
 </navigation>

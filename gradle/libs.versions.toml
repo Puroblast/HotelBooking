@@ -5,7 +5,6 @@ converterGson = "2.3.0"
 dagger = "2.44"
 daggerCompiler = "2.44"
 decoro = "1.5.2"
-expandableCardview = "0.8"
 minSdk = "24"
 retrofit = "2.9.0"
 targetSdk = "33"
@@ -42,7 +41,6 @@ core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "core-ktx
 dagger = { module = "com.google.dagger:dagger", version.ref = "dagger" }
 dagger-compiler = { module = "com.google.dagger:dagger-compiler", version.ref = "daggerCompiler" }
 decoro = { module = "ru.tinkoff.decoro:decoro", version.ref = "decoro" }
-expandable-cardview = { module = "com.alespero:expandable-cardview", version.ref = "expandableCardview" }
 junit = { group = "junit", name = "junit", version.ref = "junit" }
 androidx-test-ext-junit = { group = "androidx.test.ext", name = "junit", version.ref = "androidx-test-ext-junit" }
 espresso-core = { group = "androidx.test.espresso", name = "espresso-core", version.ref = "espresso-core" }
