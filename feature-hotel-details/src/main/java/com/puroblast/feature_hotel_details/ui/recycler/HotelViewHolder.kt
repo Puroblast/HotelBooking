@@ -147,6 +147,7 @@ class HotelViewHolder(
     private fun bindBottomItem(item: CommonDelegateItem) {
         val hotel = item.content() as Hotel
         val args = bundleOf("hotelName" to hotel.name)
+
         bottomItemBinding.chooseRoomButton.setOnClickListener {
             view.findNavController().navigate(
                 featureHotelDetailsR.id.action_hotelDetailsFragment_to_roomsFragment, args

@@ -27,7 +27,7 @@ class HotelBookingViewModel(
             val bookingDetails = hotelRepository.getBookingDetails()
             _state.value = _state.value.copy(
                 bookingDetails = bookingDetails,
-                tourists = emptyList()
+                tourists = listOf(Tourist(1))
             )
         }
     }
@@ -36,6 +36,10 @@ class HotelBookingViewModel(
         _state.value = _state.value.copy(
             tourists = _state.value.tourists + Tourist(id = _state.value.tourists.size + 1)
         )
+    }
+
+    fun checkFields(){
+        _state.value = _state.value.copy(isPayButtonPressed = true)
     }
 
     class Factory @Inject constructor(

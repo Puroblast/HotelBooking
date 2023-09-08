@@ -66,7 +66,7 @@ class HotelBookingFragment : Fragment(featureHotelBookingR.layout.fragment_hotel
         val bookingAdapter = CommonAdapter().apply {
             addDelegate(BookingInfoAdapterDelegate())
             addDelegate(TouristInfoAdapterDelegate())
-            addDelegate(BottomAdapterDelegate())
+            addDelegate(BottomAdapterDelegate(this@HotelBookingFragment as ClickListener))
             addDelegate(BuyerInfoAdapterDelegate())
             addDelegate(HotelInfoAdapterDelegate())
             addDelegate(TourPaymentInfoAdapterDelegate())
@@ -81,6 +81,9 @@ class HotelBookingFragment : Fragment(featureHotelBookingR.layout.fragment_hotel
         viewLifecycleOwner.lifecycleScope.launch {
             viewLifecycleOwner.repeatOnLifecycle(Lifecycle.State.RESUMED) {
                 hotelBookingViewModel.state.collect { state ->
+                    if (state.isPayButtonPressed) {
+                        adapter.notifyItemRangeChanged(2, state.tourists.size)
+                    }
                     val uiState = uiStateMapper.map(requireContext(), state)
                     adapter.submitList(uiState.items)
                 }
@@ -88,7 +91,11 @@ class HotelBookingFragment : Fragment(featureHotelBookingR.layout.fragment_hotel
         }
     }
 
-    override fun onClick() {
+    override fun onAddTouristButtonClick() {
         hotelBookingViewModel.addTourist()
+    }
+
+    override fun onPayButtonClick() {
+        hotelBookingViewModel.checkFields()
     }
 }

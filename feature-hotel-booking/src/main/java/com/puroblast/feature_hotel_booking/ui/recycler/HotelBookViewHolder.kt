@@ -18,7 +18,6 @@ import com.puroblast.feature_hotel_booking.databinding.HotelInfoItemBinding
 import com.puroblast.feature_hotel_booking.databinding.TourPaymentInfoItemBinding
 import com.puroblast.feature_hotel_booking.databinding.TouristInfoItemBinding
 import com.puroblast.feature_hotel_booking.presentation.ClickListener
-import com.puroblast.feature_hotel_booking.ui.recycler.model.BookHotelBottomItem
 import com.puroblast.feature_hotel_booking.ui.recycler.model.BookingInfoItem
 import com.puroblast.feature_hotel_booking.ui.recycler.model.BuyerInfoItem
 import com.puroblast.feature_hotel_booking.ui.recycler.model.HotelInfoItem
@@ -27,10 +26,12 @@ import com.puroblast.feature_hotel_booking.ui.recycler.model.TouristInfoItem
 import ru.tinkoff.decoro.MaskImpl
 import ru.tinkoff.decoro.slots.PredefinedSlots
 import ru.tinkoff.decoro.watchers.MaskFormatWatcher
+import java.text.DecimalFormat
+import java.text.DecimalFormatSymbols
 import com.puroblast.common_resources.R as commonResourcesR
 
 class HotelBookViewHolder(
-    view: View
+    private val view: View
 ) : RecyclerView.ViewHolder(view) {
 
     private val tourPaymentBinding by viewBinding(TourPaymentInfoItemBinding::bind)
@@ -43,32 +44,73 @@ class HotelBookViewHolder(
 
     fun bind(item: CommonDelegateItem) {
         when (item) {
-            is BookHotelBottomItem -> bindBottomItem(item)
             is BookingInfoItem -> bindBookingInfoItem(item)
-            is BuyerInfoItem -> bindBuyerInfoItem()
             is HotelInfoItem -> bindHotelInfoItem(item)
+            is BuyerInfoItem -> bindBuyerInfoItem()
             is TouristInfoItem -> bindTouristInfoItem(item)
             is TourPaymentInfoItem -> bindTourPaymentInfoItem(item)
         }
     }
 
+    fun bindBottomItem(item: CommonDelegateItem , onClick: ClickListener) {
+        val buttonText = item.content() as String
+        bottomItemBinding.bookButton.text = buttonText
+        bottomItemBinding.bookButton.setOnClickListener {
+            onClick.onPayButtonClick()
+        }
+    }
+
     fun bindAddTouristItem(onClick: ClickListener) {
         addTouristItemBinding.addButton.setOnClickListener {
-            onClick.onClick()
+            onClick.onAddTouristButtonClick()
+        }
+    }
+
+    private fun bindBuyerInfoItem() {
+        val phoneMask = MaskImpl(PredefinedSlots.RUS_PHONE_NUMBER, true).apply {
+            isShowingEmptySlots = true
+            placeholder = '*'
+            isHideHardcodedHead = true
+        }
+        val watcher = MaskFormatWatcher(phoneMask)
+        watcher.installOn(buyerInfoBinding.phoneNumberText)
+
+        buyerInfoBinding.phoneNumberText.setOnFocusChangeListener { view, isFocused ->
+            if (isFocused) {
+                buyerInfoBinding.phoneNumberInput.placeholderText = phoneMask.toString()
+                buyerInfoBinding.phoneNumberText.hint = ""
+            } else {
+                if (!watcher.mask.hasUserInput()) {
+                    buyerInfoBinding.phoneNumberText.setHint(featureHotelBookingR.string.input_phone_number)
+                }
+            }
         }
     }
 
     private fun bindTourPaymentInfoItem(item: CommonDelegateItem) {
         val bookingDetails = item.content() as BookingDetails
         with(tourPaymentBinding) {
-            val tourPrice = bookingDetails.tourPrice
-            val fuelCharge = bookingDetails.fuelCharge
-            val serviceCharge = bookingDetails.serviceCharge
-            val overallPrice = tourPrice + fuelCharge + serviceCharge
-            tourPaymentText.text = tourPrice.toString()
-            fuelChargeText.text = fuelCharge.toString()
-            serviceChargeText.text = serviceCharge.toString()
-            overallPaymentText.text = overallPrice.toString()
+            val decimalFormatSymbols = DecimalFormatSymbols()
+            decimalFormatSymbols.groupingSeparator = ' '
+            val format = DecimalFormat("#,##0", decimalFormatSymbols)
+
+            val overallPrice = bookingDetails.tourPrice + bookingDetails.fuelCharge + bookingDetails.serviceCharge
+            tourPaymentText.text = view.context.getString(
+                commonResourcesR.string.room_rouble_symbol ,
+                format.format(bookingDetails.tourPrice)
+            )
+            fuelChargeText.text = view.context.getString(
+                commonResourcesR.string.room_rouble_symbol ,
+                format.format(bookingDetails.fuelCharge)
+            )
+            serviceChargeText.text = view.context.getString(
+                commonResourcesR.string.room_rouble_symbol ,
+                format.format(bookingDetails.serviceCharge)
+            )
+            overallPaymentText.text = view.context.getString(
+                commonResourcesR.string.room_rouble_symbol ,
+                format.format(overallPrice)
+            )
         }
     }
 
@@ -101,27 +143,6 @@ class HotelBookViewHolder(
         }
     }
 
-    private fun bindBuyerInfoItem() {
-        val phoneMask = MaskImpl(PredefinedSlots.RUS_PHONE_NUMBER, true).apply {
-            isShowingEmptySlots = true
-            placeholder = '*'
-            isHideHardcodedHead = true
-        }
-        val watcher = MaskFormatWatcher(phoneMask)
-        watcher.installOn(buyerInfoBinding.phoneNumberText)
-
-        buyerInfoBinding.phoneNumberText.setOnFocusChangeListener { view, isFocused ->
-            if (isFocused) {
-                buyerInfoBinding.phoneNumberInput.placeholderText = phoneMask.toString()
-                buyerInfoBinding.phoneNumberText.hint = ""
-            } else {
-                if (!watcher.mask.hasUserInput()) {
-                    buyerInfoBinding.phoneNumberText.setHint(featureHotelBookingR.string.input_phone_number)
-                }
-            }
-        }
-    }
-
     private fun bindBookingInfoItem(item: CommonDelegateItem) {
         val bookingDetails = item.content() as BookingDetails
         with(bookingInfoBinding) {
@@ -135,8 +156,4 @@ class HotelBookViewHolder(
         }
     }
 
-    private fun bindBottomItem(item: CommonDelegateItem) {
-        val buttonText = item.content() as String
-        bottomItemBinding.bookButton.text = buttonText
-    }
 }

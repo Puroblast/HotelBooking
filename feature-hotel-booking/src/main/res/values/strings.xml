@@ -17,4 +17,10 @@
     <string name="input_phone_number">Введите номер телефона</string>
     <string name="input_email">Введите email</string>
     <string name="add_tourist">Добавить туриста</string>
+    <string name="name">Имя</string>
+    <string name="surname">Фамилия</string>
+    <string name="birthday">Дата рождения</string>
+    <string name="citizenship">Гражданство</string>
+    <string name="passport_number">Номер загранпаспорта</string>
+    <string name="passport_expires">Срок действия загранпаспорта</string>
 </resources>
