@@ -17,11 +17,11 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:text="@string/tour"
             android:textAppearance="@style/secondary_text_style"
             android:textSize="16sp"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            tools:text="Тур" />
+            app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
             android:id="@+id/tourPaymentText"
@@ -36,11 +36,11 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:text="@string/fuel_charge"
             android:textAppearance="@style/secondary_text_style"
             android:textSize="16sp"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@id/fuelChargeText"
-            tools:text="Топливный сбор" />
+            app:layout_constraintTop_toTopOf="@id/fuelChargeText" />
 
         <TextView
             android:id="@+id/fuelChargeText"
@@ -56,11 +56,11 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:text="@string/service_charge"
             android:textAppearance="@style/secondary_text_style"
             android:textSize="16sp"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@id/serviceChargeText"
-            tools:text="Сервисный сбор" />
+            app:layout_constraintTop_toTopOf="@id/serviceChargeText" />
 
         <TextView
             android:id="@+id/serviceChargeText"
@@ -76,11 +76,11 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:text="@string/payment"
             android:textAppearance="@style/secondary_text_style"
             android:textSize="16sp"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@id/overallPaymentText"
-            tools:text="К оплате" />
+            app:layout_constraintTop_toTopOf="@id/overallPaymentText" />
 
         <TextView
             android:id="@+id/overallPaymentText"

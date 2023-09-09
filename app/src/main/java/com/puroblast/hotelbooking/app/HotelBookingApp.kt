@@ -1,6 +1,7 @@
 package com.puroblast.hotelbooking.app
 
 import android.app.Application
+import com.puroblast.feature_hotel_booking.di.HotelBookingDependenciesStore
 import com.puroblast.feature_hotel_details.di.HotelDetailsDependenciesStore
 import com.puroblast.hotelbooking.di.AppComponent
 import com.puroblast.hotelbooking.di.DaggerAppComponent
@@ -16,5 +17,6 @@ class HotelBookingApp : Application() {
     override fun onCreate() {
         super.onCreate()
         HotelDetailsDependenciesStore.dependencies = appComponent
+        HotelBookingDependenciesStore.dependencies = appComponent
     }
 }

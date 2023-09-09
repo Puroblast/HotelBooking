@@ -1,10 +1,10 @@
 package com.puroblast.feature_hotel_details.ui.recycler.model.hotel
 
 import com.puroblast.common_recycler.CommonDelegateItem
-import com.puroblast.feature_hotel_details.R as featureHotelDetailsR
+import com.puroblast.domain_hotel.model.Hotel
 
 class BottomItem(
-    val value: Int = featureHotelDetailsR.layout.choose_room_bottom_button_item
+    val value: Hotel
 ) : CommonDelegateItem {
     override fun content(): Any = value
 

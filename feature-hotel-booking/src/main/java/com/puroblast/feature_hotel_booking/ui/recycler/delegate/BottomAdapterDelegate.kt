@@ -5,11 +5,14 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.puroblast.common_recycler.CommonAdapterDelegate
 import com.puroblast.common_recycler.CommonDelegateItem
+import com.puroblast.feature_hotel_booking.presentation.ClickListener
 import com.puroblast.feature_hotel_booking.R as featureHotelBookingR
 import com.puroblast.feature_hotel_booking.ui.recycler.HotelBookViewHolder
 import com.puroblast.feature_hotel_booking.ui.recycler.model.BookHotelBottomItem
 
-class BottomAdapterDelegate : CommonAdapterDelegate {
+class BottomAdapterDelegate(
+    private val onClick: ClickListener
+) : CommonAdapterDelegate {
     override fun onCreateViewHolder(parent: ViewGroup): RecyclerView.ViewHolder {
         val view = LayoutInflater.from(parent.context).inflate(
             featureHotelBookingR.layout.book_bottom_button_item,
@@ -24,7 +27,7 @@ class BottomAdapterDelegate : CommonAdapterDelegate {
         item: CommonDelegateItem,
         position: Int
     ) {
-        (holder as HotelBookViewHolder).bind(item)
+        (holder as HotelBookViewHolder).bind(item, onClick)
     }
 
     override fun isOfViewType(item: CommonDelegateItem): Boolean {

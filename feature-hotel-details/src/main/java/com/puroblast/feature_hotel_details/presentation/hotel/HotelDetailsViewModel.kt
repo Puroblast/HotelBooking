@@ -5,7 +5,6 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.viewModelScope
 import androidx.lifecycle.viewmodel.CreationExtras
 import com.puroblast.domain_hotel.HotelRepository
-import com.puroblast.domain_hotel.model.Hotel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.launch
@@ -19,7 +18,7 @@ class HotelDetailsViewModel(
         loadHotelDetails()
     }
 
-    private val _state = MutableStateFlow(HotelDetailsState(Hotel()))
+    private val _state = MutableStateFlow(HotelDetailsState())
     val state = _state.asStateFlow()
 
     private fun loadHotelDetails() {

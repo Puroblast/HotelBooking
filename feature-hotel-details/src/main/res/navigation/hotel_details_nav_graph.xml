@@ -9,7 +9,8 @@
         android:id="@+id/hotelDetailsFragment"
         android:name="com.puroblast.feature_hotel_details.ui.hotel_details.HotelDetailsFragment"
         android:label="fragment_details_hotel"
-        tools:layout="@layout/fragment_details_hotel" >
+        tools:layout="@layout/fragment_details_hotel">
+        <deepLink app:uri="android-app://com.puroblast.hoteldetails/hotelDetailsFragment"/>
         <action
             android:id="@+id/action_hotelDetailsFragment_to_roomsFragment"
             app:destination="@id/roomsFragment" />

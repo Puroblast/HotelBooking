@@ -5,17 +5,17 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.puroblast.common_recycler.CommonAdapterDelegate
 import com.puroblast.common_recycler.CommonDelegateItem
-import com.puroblast.feature_hotel_booking.ui.Validator
+import com.puroblast.feature_hotel_booking.presentation.ClickListener
 import com.puroblast.feature_hotel_booking.R as featureHotelBookingR
 import com.puroblast.feature_hotel_booking.ui.recycler.HotelBookViewHolder
-import com.puroblast.feature_hotel_booking.ui.recycler.model.BuyerInfoItem
+import com.puroblast.feature_hotel_booking.ui.recycler.model.AddTouristItem
 
-class BuyerInfoAdapterDelegate(
-    private val validator: Validator
+class AddTouristItemDelegate(
+    private val onClick: ClickListener
 ) : CommonAdapterDelegate {
     override fun onCreateViewHolder(parent: ViewGroup): RecyclerView.ViewHolder {
         val view = LayoutInflater.from(parent.context).inflate(
-            featureHotelBookingR.layout.buyer_info_item,
+            featureHotelBookingR.layout.add_tourist_item,
             parent,
             false
         )
@@ -27,10 +27,10 @@ class BuyerInfoAdapterDelegate(
         item: CommonDelegateItem,
         position: Int
     ) {
-        (holder as HotelBookViewHolder).bind(item, validator)
+        (holder as HotelBookViewHolder).bind(item, onClick)
     }
 
     override fun isOfViewType(item: CommonDelegateItem): Boolean {
-        return item is BuyerInfoItem
+        return item is AddTouristItem
     }
 }

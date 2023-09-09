@@ -19,11 +19,11 @@
             android:id="@+id/departureFrom"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:text="@string/departure_from"
             android:textAppearance="@style/secondary_text_style"
             android:textSize="16sp"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            tools:text="Вылет из" />
+            app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
             android:id="@+id/departureFromText"
@@ -32,16 +32,16 @@
             android:textAppearance="@style/primary_text_style"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            tools:text="Санкт-Петербург" />
+            tools:text="Санкт Петербург" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:text="@string/country_city"
             android:textAppearance="@style/secondary_text_style"
             android:textSize="16sp"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@id/countryAndCityText"
-            tools:text="Страна, город" />
+            app:layout_constraintTop_toTopOf="@id/countryAndCityText" />
 
         <TextView
             android:id="@+id/countryAndCityText"
@@ -56,11 +56,11 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:text="@string/dates"
             android:textAppearance="@style/secondary_text_style"
             android:textSize="16sp"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@id/datesText"
-            tools:text="Даты" />
+            app:layout_constraintTop_toTopOf="@id/datesText" />
 
         <TextView
             android:id="@+id/datesText"
@@ -75,11 +75,11 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:text="@string/nights_count"
             android:textAppearance="@style/secondary_text_style"
             android:textSize="16sp"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@id/nightsAmountText"
-            tools:text="Кол-во ночей" />
+            app:layout_constraintTop_toTopOf="@id/nightsAmountText" />
 
         <TextView
             android:id="@+id/nightsAmountText"
@@ -94,11 +94,11 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:text="@string/hotel"
             android:textAppearance="@style/secondary_text_style"
             android:textSize="16sp"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@id/hotelNameText"
-            tools:text="Отель" />
+            app:layout_constraintTop_toTopOf="@id/hotelNameText" />
 
         <TextView
             android:id="@+id/hotelNameText"
@@ -113,11 +113,11 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:text="@string/room"
             android:textAppearance="@style/secondary_text_style"
             android:textSize="16sp"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@id/roomNameText"
-            tools:text="Номер" />
+            app:layout_constraintTop_toTopOf="@id/roomNameText" />
 
         <TextView
             android:id="@+id/roomNameText"
@@ -132,11 +132,11 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:text="@string/nutrition"
             android:textAppearance="@style/secondary_text_style"
             android:textSize="16sp"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@id/foodTypeText"
-            tools:text="Питание" />
+            app:layout_constraintTop_toTopOf="@id/foodTypeText" />
 
         <TextView
             android:id="@+id/foodTypeText"

@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/app_background_color"
+    app:layout_constraintTop_toTopOf="parent">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white">
+
+        <com.google.android.material.appbar.MaterialToolbar
+            android:id="@+id/toolBar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/white"
+            app:layout_constraintTop_toTopOf="parent"
+            app:navigationIcon="@drawable/navigation_icon"
+            app:title="@string/success_payment_order"
+            app:titleCentered="true"
+            app:titleTextAppearance="@style/bold_text_style" />
+
+        <ImageView
+            android:id="@+id/image"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="122dp"
+            android:gravity="center"
+            android:src="@drawable/party_popper"
+            app:layout_constraintTop_toBottomOf="@id/toolBar" />
+
+        <TextView
+            android:id="@+id/orderTookToWork"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="16dp"
+            android:layout_marginTop="32dp"
+            android:gravity="center"
+            android:text="@string/order_took_to_work"
+            android:textAppearance="@style/primary_text_style"
+            android:textStyle="bold"
+            app:layout_constraintTop_toBottomOf="@id/image" />
+
+        <TextView
+            android:id="@+id/timeToAcceptOrder"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="23dp"
+            android:layout_marginTop="20dp"
+            android:gravity="center"
+            android:text="@string/time_to_accept_order"
+            android:textAppearance="@style/secondary_text_style"
+            android:textSize="16sp"
+            app:layout_constraintTop_toBottomOf="@id/orderTookToWork" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/bottomCard"
+        android:layout_width="match_parent"
+        android:layout_height="88dp"
+        android:layout_marginTop="10dp"
+        app:layout_constraintBottom_toBottomOf="parent">
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/backToMainMenuButton"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:layout_gravity="center"
+            android:layout_marginHorizontal="16dp"
+            android:backgroundTint="@color/blue"
+            android:text="@string/success_payment_order"
+            android:textAppearance="@style/primary_text_style"
+            android:textColor="@color/white"
+            app:cornerRadius="12dp" />
+
+    </androidx.cardview.widget.CardView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

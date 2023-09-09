@@ -23,10 +23,10 @@
             app:layout_constraintTop_toTopOf="parent">
 
             <TextView
+                android:id="@+id/touristNumber"
                 style="@style/bold_text_style"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Добавить туриста"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
@@ -36,7 +36,7 @@
                 android:layout_width="32dp"
                 android:layout_height="32dp"
                 android:background="@color/white"
-                android:src="@drawable/add_icon"
+                android:src="@drawable/collapsed_arrow"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
@@ -46,6 +46,7 @@
             android:id="@+id/hidden_view"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
             android:orientation="vertical"
             android:visibility="gone"
             app:layout_constraintTop_toBottomOf="@id/fixed_view">
@@ -53,91 +54,115 @@
 
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/nameInput"
-                style="@style/textInputLayout_custom"
+                style="@style/textInputLayout_custom_style"
                 android:layout_width="match_parent"
-                android:layout_height="52dp"
-                android:layout_marginBottom="8dp">
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                android:theme="@style/textInputLayout_custom_theme"
+                app:boxBackgroundColor="@color/gray_light"
+                app:hintEnabled="false">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/nameText"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:background="@color/gray_light" />
+                    android:hint="@string/name"
+                    android:inputType="text" />
 
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/surnameInput"
-                style="@style/textInputLayout_custom"
+                style="@style/textInputLayout_custom_style"
                 android:layout_width="match_parent"
-                android:layout_height="52dp"
-                android:layout_marginBottom="8dp">
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                android:theme="@style/textInputLayout_custom_theme"
+                app:boxBackgroundColor="@color/gray_light"
+                app:hintEnabled="false">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/surnameText"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:background="@color/gray_light" />
+                    android:hint="@string/surname"
+                    android:inputType="text" />
 
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/birthdayInput"
-                style="@style/textInputLayout_custom"
+                style="@style/textInputLayout_custom_style"
                 android:layout_width="match_parent"
-                android:layout_height="52dp"
-                android:layout_marginBottom="8dp">
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                android:theme="@style/textInputLayout_custom_theme"
+                app:boxBackgroundColor="@color/gray_light"
+                app:hintEnabled="false">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/birthdayText"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:background="@color/gray_light" />
+                    android:hint="@string/birthday"
+                    android:inputType="date" />
 
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/citizenshipInput"
-                style="@style/textInputLayout_custom"
+                style="@style/textInputLayout_custom_style"
                 android:layout_width="match_parent"
-                android:layout_height="52dp"
-                android:layout_marginBottom="8dp">
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                android:theme="@style/textInputLayout_custom_theme"
+                app:boxBackgroundColor="@color/gray_light"
+                app:hintEnabled="false">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/citizenshipText"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:background="@color/gray_light" />
+                    android:hint="@string/citizenship"
+                    android:inputType="text" />
 
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/passportNumberInput"
-                style="@style/textInputLayout_custom"
+                style="@style/textInputLayout_custom_style"
                 android:layout_width="match_parent"
-                android:layout_height="52dp"
-                android:layout_marginBottom="8dp">
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                android:theme="@style/textInputLayout_custom_theme"
+                app:boxBackgroundColor="@color/gray_light"
+                app:hintEnabled="false">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/passportNumberText"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:background="@color/gray_light" />
+                    android:hint="@string/passport_number"
+                    android:inputType="number" />
 
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/passportExpiresInput"
-                style="@style/textInputLayout_custom"
+                style="@style/textInputLayout_custom_style"
                 android:layout_width="match_parent"
-                android:layout_height="52dp"
-                android:layout_marginBottom="8dp">
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                android:theme="@style/textInputLayout_custom_theme"
+                app:boxBackgroundColor="@color/gray_light"
+                app:hintEnabled="false">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/passportExpiresText"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:background="@color/gray_light" />
+                    android:hint="@string/passport_expires"
+                    android:inputType="date" />
 
             </com.google.android.material.textfield.TextInputLayout>
 
