@@ -40,8 +40,7 @@
             android:layout_marginTop="32dp"
             android:gravity="center"
             android:text="@string/order_took_to_work"
-            android:textAppearance="@style/primary_text_style"
-            android:textStyle="bold"
+            android:textAppearance="@style/bold_text_style"
             app:layout_constraintTop_toBottomOf="@id/image" />
 
         <TextView
