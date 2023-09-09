@@ -101,17 +101,6 @@ class HotelBookViewHolder(
         val watcher = MaskFormatWatcher(phoneMask)
         watcher.installOn(buyerInfoBinding.phoneNumberText)
 
-        buyerInfoBinding.phoneNumberText.setOnFocusChangeListener { view, isFocused ->
-            if (isFocused) {
-                buyerInfoBinding.phoneNumberInput.placeholderText = phoneMask.toString()
-                buyerInfoBinding.phoneNumberText.hint = ""
-            } else {
-                if (!watcher.mask.hasUserInput()) {
-                    buyerInfoBinding.phoneNumberText.setHint(featureHotelBookingR.string.input_phone_number)
-                }
-            }
-        }
-
         addFieldToValidator(validator) {
             buyerInfoBinding.phoneNumberText.validatePhoneNumber()
             buyerInfoBinding.emailText.validateEmail()
@@ -121,9 +110,16 @@ class HotelBookViewHolder(
             doAfterTextChanged {
                 this.setTextColor(view.context.getColor(commonResourcesR.color.black))
             }
-            setOnFocusChangeListener { view, focused ->
-                if (!focused) {
+
+            setOnFocusChangeListener { view, isFocused ->
+                if (isFocused) {
+                    buyerInfoBinding.phoneNumberInput.placeholderText = phoneMask.toString()
+                    this.hint = ""
+                } else {
                     this.validatePhoneNumber()
+                    if (!watcher.mask.hasUserInput()) {
+                        this.setHint(featureHotelBookingR.string.input_phone_number)
+                    }
                 }
             }
         }
